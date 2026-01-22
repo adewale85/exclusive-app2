@@ -1,0 +1,57 @@
+
+import SlideImage from "../../../assets/Side Image.svg"
+import Google_icon from "../../../assets/Icon-Google.svg"
+
+
+function SignUp() {
+  return (
+    
+<div>
+   
+    <div className='w-full max-w-[1305px] mx-auto  h-[781px] flex items-center justify-center gap-20 '>
+      <div>
+        <img src={SlideImage} alt="" />
+      </div>
+      <div className=' space-y-8'>
+        <h1 className='font-inter font-medium text-[36px] leading-7.5 tracking-[4%]'>Create an account</h1>
+       <div className='space-y-8'>
+         <div className='text-black flex items-center justify-center right-3'>
+          <label htmlFor="" className=''></label>
+          <input type="name" name='name' placeholder='Enter your Name' className='w-[370px] p-2 border-0 border-b focus:outline-none border-b-black opacity-50'/>
+         </div>
+        
+         <div className='text-black flex items-center justify-center right-3'>
+          <label htmlFor="" className=''></label>
+          <input type="mail" name='mail' placeholder='Email or Phone Number' className='w-[370px] p-2 border-0 border-b focus:outline-none border-b-black opacity-50'/>
+        </div>
+        
+         <div className='text-black flex items-center justify-center right-3'>
+          <label htmlFor="" className=''></label>
+          <input type="password" name='password' placeholder='Password' className='w-[370px] p-2 border-0 border-b focus:outline-none border-b-black opacity-50'/>
+        </div>
+        <button className="w-[371px] h-14 bg-[#d64040] text-white font-poppins font-medium text-[16px] leading-6 rounded-sm ">
+          Create Account
+        </button>
+        <div className=' w-[371px] h-14 border-1.2 border-[#00000066] rounded-sm flex items-center justify-center gap-5'>
+          <span><img src={Google_icon} alt="Google_icon" /></span>
+          <button  className=" text-black font-poppins font-medium text-[16px] leading-6  ">
+          Sign up with Google
+          
+        </button>
+        </div>
+        <div className=' flex gap-12 items-center justify-center'>
+          <h3 className='font-poppins font-normal text-base leading-6'>Already have account?</h3>
+          <li className="list-none"><a href="/Log in" className='font-poppins font-medium text-base leading-6 border-b-2'>Login</a></li>
+       
+        </div>
+       </div>
+      </div>
+  </div>
+
+
+
+      </div>
+  )
+}
+
+export default SignUp
