@@ -3,7 +3,7 @@ import Speaker from '../../../assets/Speaker.svg'
 
 const EhanceYourMusicExperience = () => {
   return(
-    <section>
+    <section className="py-12">
           <div className="my-5 Wrapper">
       <div className="w-[1170px] h-[500px] bg-black p-12 mt-16 flex gap-12 items-center justify-center">
        
@@ -19,14 +19,14 @@ const EhanceYourMusicExperience = () => {
 
        </div>
       
-        <div className="flex gap-6 mt-10">
+        <div className="flex gap-6 ">
           {EhanceYourMusicExperienceData.map(({id, title, subTitle}) => (
        
-       <section key = {id} className="bg-white size-[65px] rounded-full flex items-center justify-center">
+       <section key = {id} className=" bg-white size-[65px] rounded-full flex items-center justify-center">
          
-            <div className="">
-              <div className="font-poppins font-semibold text-[16px] leading-5 " > {title} </div>
-            <div className="font-poppins font-normal text-[11px] leading-[18px] ">{subTitle}</div>
+            <div className=" flex flex-col items-center justify-center">
+              <div className="font-poppins font-semibold text-[22px] leading-5" > {title} </div>
+            <div className="font-poppins font-normal text-[11px] leading-[18px]  ">{subTitle}</div>
             </div>
           
         </section>

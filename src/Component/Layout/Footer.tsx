@@ -9,6 +9,7 @@ import Linkedin_Icon from "../../assets/Icon-Linkedin.svg"
 import Instagram_Icon from "../../assets/icon-instagram.svg"
 
 
+
 function Footer() {
   return (
     <div className="bg-black text-white py-12">
@@ -16,7 +17,14 @@ function Footer() {
 
         {/* === UNIQUE SECTION === */}
         <div className="space-y-5">
-          <h2 className="font-inter font-bold text-2xl">Exclusive</h2>
+          
+
+         <ul>
+          <li className=" font-inter font-bold text-2xl list-none">
+            <a href="/"> Exclusive</a>
+          </li>
+         </ul>
+          
           <h3 className="font-poppins text-[20px] font-medium">Subscribe</h3>
           <p className="font-poppins text-[16px]">Get 10% off your first order</p>
 

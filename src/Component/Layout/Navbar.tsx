@@ -4,9 +4,8 @@ import { NavLink } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import DropNav from "./DropNav";
 
-
 function Navbar() {
-  const isloggedIn = false
+  const isloggedIn = false;
 
   const Navlinks = [
     { id: 1, label: "Home", path: "/" },
@@ -44,21 +43,23 @@ function Navbar() {
           <NavInput />
 
           <ul className="flex gap-5 items-center">
+            <li>
+              <a href="/wishlist">
+                <IoMdHeartEmpty className="w-8 h-8" />
+              </a>
+            </li>
+           
+            <li>
+              <a href="/cart">
+                <IoCartOutline className="w-8 h-8" />
+              </a>
+            </li>
+            {isloggedIn && (
               <li>
-                <a href="/wishlist">
-                  <IoMdHeartEmpty className="w-8 h-8" />
-                </a>
+                <DropNav />
               </li>
-              <li>
-                <a href="/cart">
-                  <IoCartOutline className="w-8 h-8" />
-                </a>
-              </li>
-              {isloggedIn && ( <li>
-                <DropNav/>
-              </li>)}
-            </ul>
-
+            )}
+          </ul>
         </div>
       </div>
       <div className="border-b-2  opacity-30 "></div>

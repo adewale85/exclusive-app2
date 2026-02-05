@@ -21,8 +21,6 @@ function WishlistNav() {
             <li><a href="/signup">Sign-Up</a></li>
           </ul>
 
-        
-          
 
           <div className='flex gap-5 items-center'>
             <div className="relative w-[347px]">

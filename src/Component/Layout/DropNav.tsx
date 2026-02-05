@@ -19,7 +19,7 @@ function DropNav() {
                 <img src={User_Profile} alt="user" />
               </button>
 
-              {open && (
+              {open && ( 
                 <div className="absolute text-white text-start w-56 bg-red-200 shadow-lg rounded-md z-50 ">
                   <div className="flex gap-5 text-start">
                     <img src={User} alt="" className="size-[6]" />

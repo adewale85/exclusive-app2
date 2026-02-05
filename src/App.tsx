@@ -17,9 +17,13 @@ import Checkout from './pages/checkout/Checkout'
 import Account from './pages/Account'
 import About from './pages/About'
 import Contact from './pages/Contact'
-import Error from './pages/error'
+import Error from './pages/Error'
+import { useEffect, useState } from 'react'
 
 
+
+import Axios from "axios";
+import AllProductDetails from './pages/AllProductDetails'
 
 
 
@@ -29,6 +33,9 @@ import Error from './pages/error'
 
 
 function App() {
+
+
+
 
   return (
    
@@ -48,6 +55,8 @@ function App() {
          <Route path="about" element={<About/>} />
          <Route path="contact" element={<Contact/>} />
          <Route path="error" element={<Error/>} />
+         <Route path="allProductDetails" element={<AllProductDetails/>} />
+         
          
       </Routes>
    

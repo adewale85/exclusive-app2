@@ -1,67 +1,94 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import SlideImage from "../../../assets/Side Image.svg";
 
-
-
 function Login() {
-  const [showDropNav, setShowDropNav] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [user, setUser] = useState(null);
+
+  const handleLogin = () => {
+    if (!email || !password) {
+      setError("Please enter email and password");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    fetch("https://dummyjson.com/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: email,
+        password: password,
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Invalid login ");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setUser(data);
+        localStorage.setItem("token", data.token);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setLoading(false);
+      });
+  };
 
   return (
-    <div className='Wrapper h-[781px] flex items-center gap-20 relative'>
-
-     
+    <div className="Wrapper h-[781px] flex items-center gap-20">
       <div>
         <img src={SlideImage} alt="Slide" />
       </div>
 
-      
-      <div className='space-y-8'>
-        <h1 className='font-inter font-medium text-[36px] leading-7.5 tracking-[4%]'>
-          Log in to Exclusive
-        </h1>
-        <p className='font-poppins font-normal text-base leading-6'>
-          Enter your details below
-        </p>
+      <div className="space-y-8">
+        <h1 className="text-[36px] font-medium">Log in to Exclusive</h1>
+        <p>Enter your details below</p>
 
-        <div className='space-y-8'>
-          
-          <div className='text-black flex items-center justify-center'>
-            <input 
-              type="email" 
-              name='mail' 
-              placeholder='Email or Phone Number' 
-              className='w-[370px] p-2 border-0 border-b focus:outline-none border-b-black opacity-50'
-            />
-          </div>
+        <div className="space-y-8">
+          <input
+            type="text"
+            placeholder="Username"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-[370px] p-2 border-b outline-none"
+          />
 
-         
-          <div className='text-black flex items-center justify-center'>
-            <input 
-              type="password" 
-              name='password' 
-              placeholder='Password' 
-              className='w-[370px] p-2 border-0 border-b focus:outline-none border-b-black opacity-50'
-            />
-          </div>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-[370px] p-2 border-b outline-none"
+          />
 
-         
-          <div className='flex items-center justify-between'>
-            <button 
-              onClick={() => setShowDropNav(true)}
-              className="w-[143px] h-14 bg-[#d64040] text-white font-poppins font-medium text-[16px] leading-6 rounded-sm"
+          <div className="flex justify-between items-center">
+            <button
+              onClick={handleLogin}
+              disabled={loading}
+              className="w-[143px] h-14 bg-[#d64040] text-white rounded-sm"
             >
-              Login
+              {loading ? "Logging in..." : "Login"}
             </button>
 
-            <p className='font-poppins font-normal text-base leading-6 text-[#DB4444]'>
-              Forget Password?
-            </p>
+            <p className="text-[#DB4444]">Forget Password?</p>
           </div>
-          {showDropNav && (
-            <div className='relative z-50 mt-4'>
-              {/* <DropNav/> */}
-              
-            </div>
+
+          {error && <p className="text-red-500">{error}</p>}
+
+          {user && (
+            <p className="text-green-600">
+              Welcome back, <b>{user.username}</b>
+            </p>
           )}
         </div>
       </div>

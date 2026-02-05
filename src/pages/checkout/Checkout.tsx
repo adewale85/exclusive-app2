@@ -1,7 +1,4 @@
 
-
-
-import WishlistNav from '../../Component/Layout/WishlistNav'
 import Monitor from "../../assets/Monitor.svg"
 import Gamepad from "../../assets/Gamepad.svg"
 import Bkash from "../../assets/Bkash.svg"
@@ -11,12 +8,13 @@ import Nagad from "../../assets/Nagad.svg"
 
 import { useState } from 'react'
 import OrderSucessModal from '../../Component/OrderSucessModal'
+import Navbar from '../../Component/Layout/Navbar'
 
 function Checkout() {
     const [sucessModal, setsucessModal] = useState(false)
     return (
         <main>
-            <WishlistNav />
+            <Navbar />
             <div className='Wrapper flex items-center justify-between'>
 
 

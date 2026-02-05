@@ -21,3 +21,25 @@ export const browseByCategoryData: BrowseByCategoryProps[] = [
   { id: 6, title: "Gaming", image: GamepadImg },
 ];
 
+
+// export interface CategoryResponse {
+//   categories: CategoryData[];
+//   total: number;
+//   skip: number;
+//   limit: number;
+// }
+
+// export interface CategoryData {
+//   id: number;
+//   title: string;
+//   slug: string;
+//   image: string;
+//   isActive: boolean;
+//   meta: CategoryMeta;
+// }
+
+// export interface CategoryMeta {
+//   itemCount: number;
+//   createdAt: string;
+//   updatedAt: string;
+// }
