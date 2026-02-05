@@ -1,6 +1,9 @@
 import { type ProductDetails } from "../../../constants/sellingProducts";
 import Heart from '../../../assets/Fill Heart.svg'
 import Eye from '../../../assets/Fill Eye.svg'
+import StarIcon from "../../../assets/Star.svg"
+import halfIcon from "../../../assets/star-half-filled.svg"
+import emptyIcon from "../../../assets/EmptyStar.svg"
 import { useEffect, useState } from "react";
 
 const BestSellingProducts = () => {
@@ -63,6 +66,7 @@ useEffect(()=>{
 
             
             </section>
+            <div className="space-y-2">
             <div className="font-poppins font-medium text-base leading-6">
                {BestSellingProductData.title}
             </div>
@@ -74,6 +78,21 @@ useEffect(()=>{
                      {BestSellingProductData.price}
                   </span>
                 </div>
+
+                <div className='flex gap-3'>
+                        {[1,2,3,4,5].map((star)=>{
+                            const rating = BestSellingProductData.rating
+                            if (rating >= star){
+                                return <img src={StarIcon} alt="" />
+                            } else if (rating >=star-0.5){
+                                return <img src={halfIcon} alt="" />
+                            } else {
+                                <img src={emptyIcon} alt="" />
+                            }
+                        })}
+                        {/* <span>{flashShareData.reviews}</span> */}
+                    </div>
+                  </div>
         </div>
 
 

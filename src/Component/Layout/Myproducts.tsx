@@ -2,10 +2,15 @@ import React from 'react'
 
 import Heart from "../../assets/Fill Heart.svg";
 import Eye from "../../assets/Fill Eye.svg";
+import StarIcon from "../../assets/Star.svg"
+import halfIcon from "../../assets/star-half-filled.svg"
+import emptyIcon from "../../assets/EmptyStar.svg"
 
 import { useEffect, useState } from "react";
 import type { ProductResponse } from "../../../constants/Flash";
-
+import { Link } from "react-router-dom";
+import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
+import { FaRegStarHalfStroke } from 'react-icons/fa6';
 
 
 function Myproducts() {
@@ -64,9 +69,9 @@ function Myproducts() {
              </div> 
 
              {/* <div>
-               {bg && (
+               {flashShareData.sku && (
                 <p className={`absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center text-white 
-                ${bg ? 'bg-[black]' : 'bg-transparent'} `}>
+                ${flashShareData.sku ? 'bg-[black]' : 'bg-transparent'} `}>
                   Add To Cart
                 </p>
                )}
@@ -89,6 +94,20 @@ function Myproducts() {
                 </div>
 
 
+                    <div className='flex gap-3'>
+                        {[1,2,3,4,5].map((star)=>{
+                            const rating = flashShareData.rating
+                            if (rating >= star){
+                                return <img src={StarIcon} alt="" />
+                            } else if (rating >=star-0.5){
+                                return <img src={halfIcon} alt="" />
+                            } else {
+                                <img src={emptyIcon} alt="" />
+                            }
+                        })}
+                        {/* <span>{flashShareData.reviews}</span> */}
+                    </div>
+
                 {/* <div>
                   {[1,2,3,4,5].map((star)=>{
                     const rating = flashShareData.rating
@@ -98,15 +117,15 @@ function Myproducts() {
                       return <FaStarHalfAlt key={star} className="bg-red-400"                    }
                   })}
                   
-                </div> */}
+                </div>  */}
                 
-               {/* <div className="flex gap-1">
+        {/* <div className="flex gap-1">
         {[1,2,3,4,5].map((star) => rating >= star ?(
           <FaStar key={star} className="text-yellow-500" />
         ): rating >= star - 0.5 ? (
           <FaStarHalfAlt key={star} className="text-yellow-500" />
         ):(
-          <FaRegStar key={star} className="text-gray-400" />
+          <FaRegStarHalfStroke key={star} className="text-gray-400" />
         )
       )}
 
