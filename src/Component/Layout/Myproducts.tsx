@@ -8,6 +8,7 @@ import emptyIcon from "../../assets/EmptyStar.svg"
 
 import { useEffect, useState } from "react";
 import type { ProductResponse } from "../../../constants/Flash";
+import { Link } from "react-router-dom";
 
 function Myproducts() {
 
@@ -60,7 +61,9 @@ function Myproducts() {
                   </div>
                 </div>
                 <div className="absolute inset-0 m-auto w-[190px] h-[180px]">
+                 <Link to = {`/product/${flashShareData.thumbnail.id}`}>
                   <img src={flashShareData.thumbnail} alt={flashShareData.title} className="w-[190px] h-[180px] " />
+                 </Link>
            
              </div> 
 

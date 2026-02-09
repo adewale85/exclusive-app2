@@ -6,7 +6,7 @@ import StarIcon from "../../../assets/Star.svg"
 import halfIcon from "../../../assets/star-half-filled.svg"
 import emptyIcon from "../../../assets/EmptyStar.svg"
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Links } from "react-router-dom";
 
 
 const ExploreOurProducts = () => {
@@ -59,7 +59,9 @@ useEffect (()=>{
                   </div>
                 </div>
                   <div className="absolute inset-0 m-auto w-[190px] h-[180px]">
+                   <Link to = {`/product/${ExploreOurProductsData.id}`}>
                     <img src={ExploreOurProductsData.thumbnail} alt={ExploreOurProductsData.title} className=" " />
+                   </Link>
                   </div>
             </section>
               <div className="font-poppins font-medium text-base leading-6 space-y-3">
@@ -96,7 +98,9 @@ useEffect (()=>{
                   </div>
                 </div>
                   <div className="absolute inset-0 m-auto w-[190px] h-[180px]">
+                    <Link to = {`/product/${ExploreOurProductsData.id}`}>
                     <img src={ExploreOurProductsData.thumbnail} alt={ExploreOurProductsData.title} className=" " />
+                   </Link>
                   </div>
             </section>
               <div className="font-poppins font-medium text-base leading-6 space-y-3">
