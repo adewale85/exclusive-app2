@@ -2,10 +2,11 @@
 import Footer from "../../Component/Layout/Footer";
 import { type ListResponse } from "../../constants/List";
 import DeleteBtn from "../../assets/DeleteBtn.svg";
-import Cart_icon from "../../assets/Cart1.svg";
 
-import { WishlistSectionData } from "../../constants/WishlistSection";
-import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
+
+import StarIcon from "../../assets/Star.svg"
+import halfIcon from "../../assets/star-half-filled.svg"
+import emptyIcon from "../../assets/EmptyStar.svg"
 import Navbar from "../../Component/Layout/Navbar";
 import { useEffect, useState } from "react";
 
@@ -71,10 +72,34 @@ useEffect(()=>{
                         </button>
                       </div>
                 </section>
-                <div className="font-poppins font-medium text-base leading-6">
-                  {WishlistDetailsData.title}
-                  <div className="font-poppins font-medium text-[16px] leading-6 text-[#DB4445]">{WishlistDetailsData.price}</div>
+                <div className="space-y-3">
+                
+                  <div className="font-poppins font-medium text-base leading-6">
+                    {WishlistDetailsData.title}
+                    </div>
+                <div className="flex gap-3">
+                    <p className="font-poppins font-medium text-[16px] leading-6 text-[#DB4445]">{WishlistDetailsData.price}
+                  </p>
+                  <p className="line-through font-poppins font-medium text-[16px] leading-6 ">{WishlistDetailsData.price}
+                  </p>
                 </div>
+                
+                
+                   <div className='flex gap-3'>
+                        {[1,2,3,4,5].map((star)=>{
+                            const rating = WishlistDetailsData.rating
+                            if (rating >= star){
+                                return <img src={StarIcon} alt="" />
+                            } else if (rating >=star-0.5){
+                                return <img src={halfIcon} alt="" />
+                            } else {
+                                <img src={emptyIcon} alt="" />
+                            }
+                        })}
+                        {/* <span>{flashShareData.reviews}</span> */}
+                    </div>
+                    </div>
+                
               </div>
             ))} 
           </div>
@@ -110,74 +135,32 @@ useEffect(()=>{
                         </button>
                       </div>
                 </section>
+                <div className="space-y-3">
                 <div className="font-poppins font-medium text-base leading-6">
                   {WishlistDetailsData.title}
+                   </div>
                   <div className="font-poppins font-medium text-[16px] leading-6 text-[#DB4445]">{WishlistDetailsData.price}</div>
-                </div>
+               
+                 <div className='flex gap-3'>
+                        {[1,2,3,4,5].map((star)=>{
+                            const rating = WishlistDetailsData.rating
+                            if (rating >= star){
+                                return <img src={StarIcon} alt="" />
+                            } else if (rating >=star-0.5){
+                                return <img src={halfIcon} alt="" />
+                            } else {
+                                <img src={emptyIcon} alt="" />
+                            }
+                        })}
+                        {/* <span>{flashShareData.reviews}</span> */}
+                    </div>
+                    </div>
               </div>
             ))} 
           </div>
           </section>
          
 
-          {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 space-y-24">
-            {WishlistData.map(
-              ({ id, title, price, oldPrice, image, percent, bgpercent }) => (
-                <section
-                  key={id}
-                  className="w-[270px] h-[250px] bg-secondary rounded-xl p-4
-                       flex flex-col items-center justify-between relative text-start"
-                >
-                  <div className="">
-                    <div className="relative w-full h-[250px] flex items-center  justify-center">
-                      <img
-                        src={image}
-                        className="max-w-full max-h-[200px] items-center justify-center "
-                      />
-
-                      <div className=" flex justify-between item- w-full absolute top-3 right-3">
-                        {percent && (
-                          <p
-                            className={`w-[55px] h-[26px] rounded-md flex items-center justify-center text-white
-      ${bgpercent ? "bg-[#DB4445]" : "bg-transparent"}`}
-                          >
-                            {percent}
-                          </p>
-                        )}
-
-                        <button>
-                          {" "}
-                          <img
-                            src={DeleteBtn}
-                            alt=""
-                            className="ml-auto cursor-pointer"
-                          />
-                        </button>
-                      </div>
-                    </div>
-                    <div className="w-full h-12  absolute -bottom-6 left-0 ">
-                      <div className="items-center justify-center flex gap-2 text-start p-2 bg-black">
-                        <img src={Cart_icon} alt="" className="size-6" />
-                        <h3 className="text-white font-poppins font-normal text-[12px] leading-4">
-                          Add to cart
-                        </h3>
-                      </div>
-                    </div>
-
-                    <div className="font-poppins font-medium text-[16px] leading-6 text-black ">
-                      {title}
-                    </div>
-                    <div className="flex gap-5  ">
-                      <span className="text-[#df4242]">{price}</span>
-                      <span className="line-through text-[#df4242]">
-                        {oldPrice}
-                      </span>
-                    </div>
-                  </div>
-                </section>
-              )
-            )}
-          </div> */}
 
         </div>
         

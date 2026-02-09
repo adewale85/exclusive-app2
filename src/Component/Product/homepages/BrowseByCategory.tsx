@@ -6,7 +6,7 @@ const BrowseByCategory = () => {
   return (
     <div className="mt-12 Wrapper  ">
       <div className='flex gap-3 items-center mb-5'>
-        <div className='w-[1.25rem] h-[2.5rem] bg-red-500 rounded-md'></div>
+        <div className='w-5 h-10n bg-red-500 rounded-md'></div>
         <div className='font-poppins font-semibold text-[16px] leading-5 text-[#db4444]'> Categories</div>  
         </div> 
       <h2 className="font-inter font-semibold text-4xl mb-12 text-left">Browse By Category</h2>

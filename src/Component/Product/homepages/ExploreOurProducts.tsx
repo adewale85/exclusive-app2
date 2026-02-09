@@ -1,7 +1,7 @@
 import { type Exploreprops } from "../../../constants/Explore";
 import Heart from "../../../assets/Fill Heart.svg";
 import Eye from "../../../assets/Fill Eye.svg";
-import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa"; 
 import StarIcon from "../../../assets/Star.svg"
 import halfIcon from "../../../assets/star-half-filled.svg"
 import emptyIcon from "../../../assets/EmptyStar.svg"
@@ -42,7 +42,7 @@ useEffect (()=>{
   return (
     <section className=" Wrapper ">
       <div className='flex gap-3 items-center '>
-        <div className='w-[1.25rem] h-[2.5rem] bg-red-500 rounded-md'></div>
+        <div className='w-5 h-10 bg-red-500 rounded-md'></div>
         <div className='font-poppins font-semibold text-[16px] leading-5 text-[#db4444]'>Our products</div>  
         </div> 
       <h2 className="font-inter font-semibold text-[36px] leading-12 tracking-[4%] my-6 mb-24">Explore Our Products</h2>
@@ -55,7 +55,7 @@ useEffect (()=>{
               <div className="flex justify-between p-3 relative ">
                   <div className="flex flex-col space-y-2">
                     <img src={Heart} alt="" className="w-8 h-8" />
-                    <img src={Eye} alt="" className="w-8 h-8" />
+                    <img src={Eye} alt="" className="w-8 h-8"/>
                   </div>
                 </div>
                   <div className="absolute inset-0 m-auto w-[190px] h-[180px]">

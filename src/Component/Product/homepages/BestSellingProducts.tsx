@@ -37,7 +37,7 @@ useEffect(()=>{
   return (
     <section className="mt-12 px-4 Wrapper ">
        <div className='flex gap-3 items-center mb-5'>
-        <div className='w-[1.25rem] h-[2.5rem] bg-red-500 rounded-md'></div>
+        <div className='w-5 h-10 bg-red-500 rounded-md'></div>
         <div className='font-poppins font-semibold text-[16px] leading-5 text-[#db4444]'>This Month</div>  
         </div> 
       <h2 className="font-inter font-semibold text-4xl leading-12 tracking-[4%] mb-12">Best Selling Products</h2>
@@ -51,18 +51,27 @@ useEffect(()=>{
          <section className="wrapper relative w-[270px] h-[250px] bg-[#f5f5f5] mb-3">
             
               
-                <div className="flex justify-between p-2 relative ">
+                <div className="flex justify-between p-2 relative  z-40">
                 
 
                   <div className="flex flex-col space-y-2">
                     <img src={Heart} alt="" className="w-8 h-8" />
                     <img src={Eye} alt="" className="w-8 h-8" />
                   </div>
+              <div className="absolute z-10">
+               {BestSellingProductData.description && (
+                <div className={`absolute w-full h-10 flex top-40 rounded-br-sm rounded-bl-sm items-center justify-center  
+                ${BestSellingProductData.description ? 'bg-[black]' : 'bg-transparent'} `}>
+                 <p> Add To Cart</p>
+                </div>
+               )}
+            </div> 
                 </div>
                 <div className="absolute inset-0 m-auto w-[190px] h-[180px]">
                   <img src={BestSellingProductData.thumbnail} alt={BestSellingProductData.title} className="w-[190px] h-[180px] " />
            
              </div> 
+             
 
             
             </section>
@@ -78,6 +87,8 @@ useEffect(()=>{
                      {BestSellingProductData.price}
                   </span>
                 </div>
+
+               
 
                 <div className='flex gap-3'>
                         {[1,2,3,4,5].map((star)=>{

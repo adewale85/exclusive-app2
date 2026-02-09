@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 import Heart from "../../assets/Fill Heart.svg";
 import Eye from "../../assets/Fill Eye.svg";
@@ -8,10 +8,6 @@ import emptyIcon from "../../assets/EmptyStar.svg"
 
 import { useEffect, useState } from "react";
 import type { ProductResponse } from "../../../constants/Flash";
-import { Link } from "react-router-dom";
-import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
-import { FaRegStarHalfStroke } from 'react-icons/fa6';
-
 
 function Myproducts() {
 
@@ -93,6 +89,14 @@ function Myproducts() {
                   </span>
                 </div>
 
+                {/* <div>
+               {bg && (
+                <p className={`absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center text-white 
+                ${bg ? 'bg-[black]' : 'bg-transparent'} `}>
+                  Add To Cart
+                </p>
+               )}
+            </div>  */}
 
                     <div className='flex gap-3'>
                         {[1,2,3,4,5].map((star)=>{
@@ -108,32 +112,7 @@ function Myproducts() {
                         {/* <span>{flashShareData.reviews}</span> */}
                     </div>
 
-                {/* <div>
-                  {[1,2,3,4,5].map((star)=>{
-                    const rating = flashShareData.rating
-                    if (rating >= star){
-                      return <FaStar key={star} className="text-amber-400"
-                    } else if (rating >= star - 0.5){
-                      return <FaStarHalfAlt key={star} className="bg-red-400"                    }
-                  })}
-                  
-                </div>  */}
-                
-        {/* <div className="flex gap-1">
-        {[1,2,3,4,5].map((star) => rating >= star ?(
-          <FaStar key={star} className="text-yellow-500" />
-        ): rating >= star - 0.5 ? (
-          <FaStarHalfAlt key={star} className="text-yellow-500" />
-        ):(
-          <FaRegStarHalfStroke key={star} className="text-gray-400" />
-        )
-      )}
-
-   
-                    <span className="ml-2 text-sm text-gray-600">
-                      ({reviews})
-                    </span>
-                  </div> */}
+             
               </div>
           </div>
         ))}
