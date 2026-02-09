@@ -14,12 +14,15 @@ import Return_Delivery from "../assets/Icon-return.svg";
 
 import Myproducts from "../Component/Layout/Myproducts";
 import Footer from "../Component/Layout/Footer";
-import { ProductDetailsData } from "../constants/ProductDetails";
+
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 function AllProductDetails() {
  
-  const [data, setData] = useState (null)
+  const {id} = useParams ()
+  const [product, setProduct] = useState (null)
+  
   const [loading, setLoading] = useState (false)
   const [error, setError] = useState ("")
 
@@ -27,12 +30,12 @@ function AllProductDetails() {
     const myProductsInformation = async () => {
       setLoading (true)
      try {
-      const response = await fetch ("https://dummyjson.com/products")
+      const response = await fetch (`https://dummyjson.com/products/${id}`)
       if(!response.ok) {
         throw new Error ("Somethin went wrong")
       } const data = await response.json ()
-      setData(data)
-      console.log(data);  
+      setProduct(data)
+      // console.log(product);  
     } catch (error:unknown){
       setError(error?.message)
       console.log(error);
@@ -41,8 +44,11 @@ function AllProductDetails() {
     }
   }
   myProductsInformation()
-  }, [] )
+  }, [id] )
 
+if (loading) return <div className="text-center py-20">Loading product...</div>;
+if (error) return <div className="text-center py-20 text-red-500">{error}</div>;
+if (!product) return null; // This prevents the "null" error
 
   return (
     <div>
@@ -56,52 +62,46 @@ function AllProductDetails() {
             Gaming /
           </p>
           <p className="font-poppins font-normal text-[14px] leading-5">
-            Havic HV G-92 Gamepad
+           {product.title}
           </p>
         </div>
 
-        <div className="flex justify-between ">
-          <div className="space-y-4">
-            <div className="w-[170px] h-[138px] bg-[#f5F5F5] rounded-sm flex items-center justify-center">
-              <img src={Pad1} alt="" />
+        <div className="flex gap-12">
+          <div className="space-y-4 ">
+           {product.images?.slice (0,4).map((img, index)=>(
+            <div key={index} className="w-[170px] h-[138px] bg-[#f5F5F5] rounded-sm flex items-center justify-center">
+              <img src={img} alt="" />
             </div>
-            <div className="w-[170px] h-[138px] bg-[#f5F5F5] rounded-sm flex items-center justify-center">
-              <img src={Pad2} alt="" />
-            </div>
-            <div className="w-[170px] h-[138px] bg-[#f5F5F5] rounded-sm flex items-center justify-center">
-              <img src={Pad3} alt="" />
-            </div>
-            <div className="w-[170px] h-[138px] bg-[#f5F5F5] rounded-sm flex items-center justify-center">
-              <img src={Pad4} alt="" />
-            </div>
-          </div>
-
+            
+           ))}
+           </div>
           <div className="w-[500px] h-[600px] bg-[#f5F5F5] rounded-sm flex items-center justify-center">
-            <img src={Pad} alt="" />
+            <img src={product.thumbnail} alt="" />
           </div>
-
+           
+    
           <div className="">
-            {ProductDetailsData.map(({id,title,subTitle,price, rating, image})=>(
-              <section key={id}>
+            
+              <section >
                 <div className="space-y-6">
                  <h2 className="font-inter font-semibold text-2xl leading-6 tracking-[3]">
-              {title}
+              {product.title}
             </h2>
-             <p className="font-poppins font-normal text-[14px] leading-5 border-b pb-5 w-[373px]">{subTitle}</p>
+             <p className="font-poppins font-normal text-[14px] leading-5 border-b pb-5 w-[373px]">{product.description}</p>
             <div className="flex gap-3">
-              {rating}
+              {product.rating}
               <p className="font-poppins font-normal text-[14px] leading-5 opacity-50">
                 {/* {review} */}
 
               </p>
               <p className="font-poppins font-normal text-[14px] leading-5 text-[#00FF66]">
-                {price}
+                {product.price}
                 <span className="text-black opacity-50">|</span> In Stock
               </p>
             </div>
                 </div>
               </section>
-            ))}
+          
              
              <div className="space-y-6">
             <div className="flex gap-7 ">

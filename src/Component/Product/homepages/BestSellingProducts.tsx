@@ -5,6 +5,7 @@ import StarIcon from "../../../assets/Star.svg"
 import halfIcon from "../../../assets/star-half-filled.svg"
 import emptyIcon from "../../../assets/EmptyStar.svg"
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const BestSellingProducts = () => {
 
@@ -68,8 +69,10 @@ useEffect(()=>{
             </div> 
                 </div>
                 <div className="absolute inset-0 m-auto w-[190px] h-[180px]">
+                  <Link to = {`/product/${BestSellingProductData.id}`}>
                   <img src={BestSellingProductData.thumbnail} alt={BestSellingProductData.title} className="w-[190px] h-[180px] " />
-           
+                  </Link>
+
              </div> 
              
 

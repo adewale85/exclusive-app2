@@ -55,7 +55,8 @@ function App() {
          <Route path="about" element={<About/>} />
          <Route path="contact" element={<Contact/>} />
          <Route path="error" element={<Error/>} />
-         <Route path="produc" element={<AllProductDetails/>} />
+         <Route path="/product/:id" element={<AllProductDetails/>} />
+         
          
          
       </Routes>
