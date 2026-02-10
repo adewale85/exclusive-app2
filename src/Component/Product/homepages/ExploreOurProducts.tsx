@@ -63,6 +63,15 @@ useEffect (()=>{
                     <img src={ExploreOurProductsData.thumbnail} alt={ExploreOurProductsData.title} className=" " />
                    </Link>
                   </div>
+
+              <div className="group">
+               {ExploreOurProductsData && (
+                <p className=" group-hover:hover  absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center text-white bg-[black]">
+                  Add To Cart
+                </p>
+               )}
+            </div> 
+
             </section>
               <div className="font-poppins font-medium text-base leading-6 space-y-3">
                 <h5>{ExploreOurProductsData.title}</h5>

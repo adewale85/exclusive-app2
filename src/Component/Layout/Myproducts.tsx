@@ -55,26 +55,25 @@ function Myproducts() {
                    -40%
                   </div>
 
-                  <div className="flex flex-col space-y-2">
+                <div className="flex flex-col space-y-2">
                     <img src={Heart} alt="" className="w-8 h-8" />
                     <img src={Eye} alt="" className="w-8 h-8" />
-                  </div>
                 </div>
+                </div>
+
                 <div className="absolute inset-0 m-auto w-[190px] h-[180px]">
-                 <Link to = {`/product/${flashShareData.thumbnail.id}`}>
+                 <Link to = {`/product/${flashShareData.id}`}>
                   <img src={flashShareData.thumbnail} alt={flashShareData.title} className="w-[190px] h-[180px] " />
                  </Link>
-           
-             </div> 
+                </div> 
 
-             {/* <div>
-               {flashShareData.sku && (
-                <p className={`absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center text-white 
-                ${flashShareData.sku ? 'bg-[black]' : 'bg-transparent'} `}>
+              <div className="group">
+               {flashShareData && (
+                <p className=" group-hover:hover  absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center text-white bg-[black]">
                   Add To Cart
                 </p>
                )}
-            </div>  */}
+            </div>  
    
               
 

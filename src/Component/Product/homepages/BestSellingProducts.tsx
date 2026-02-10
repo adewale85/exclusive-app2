@@ -59,25 +59,26 @@ useEffect(()=>{
                     <img src={Heart} alt="" className="w-8 h-8" />
                     <img src={Eye} alt="" className="w-8 h-8" />
                   </div>
-              <div className="absolute z-10">
-               {BestSellingProductData.description && (
-                <div className={`absolute w-full h-10 flex top-40 rounded-br-sm rounded-bl-sm items-center justify-center  
-                ${BestSellingProductData.description ? 'bg-[black]' : 'bg-transparent'} `}>
-                 <p> Add To Cart</p>
-                </div>
-               )}
-            </div> 
+              
                 </div>
                 <div className="absolute inset-0 m-auto w-[190px] h-[180px]">
                   <Link to = {`/product/${BestSellingProductData.id}`}>
                   <img src={BestSellingProductData.thumbnail} alt={BestSellingProductData.title} className="w-[190px] h-[180px] " />
                   </Link>
-
              </div> 
-             
 
+             {/* <div className="">
+               {BestSellingProductData.description && (
+                <p className="absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center  
+                 text-white bg-[black] ">
+                 <p> Add To Cart</p>
+                </p>
+               )}
+            </div> */}
             
             </section>
+
+            
             <div className="space-y-2">
             <div className="font-poppins font-medium text-base leading-6">
                {BestSellingProductData.title}

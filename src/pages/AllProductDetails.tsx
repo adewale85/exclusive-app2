@@ -1,16 +1,14 @@
 
 import Navbar from "../Component/Layout/Navbar";
-import Pad1 from "../assets/Pad1.svg";
-import Pad2 from "../assets/Pad2.svg";
-import Pad3 from "../assets/Pad3.svg";
-import Pad4 from "../assets/Pad4.svg";
-import Pad from "../assets/Pad.svg";
+
 
 import ElipseBlackBlue from "../assets/ElipseBlackBlue.svg";
 import ElipseRed from "../assets/EllipseRed.svg";
 import Love_Vector from "../assets/Love_Vector.svg";
 import Delivery_Icon from "../assets/icon-delivery.svg";
 import Return_Delivery from "../assets/Icon-return.svg";
+import star_Icon from "../assets/Star.svg";
+import HalfStar from "../assets/star-half-filled.svg";
 
 import Myproducts from "../Component/Layout/Myproducts";
 import Footer from "../Component/Layout/Footer";
@@ -22,7 +20,6 @@ function AllProductDetails() {
  
   const {id} = useParams ()
   const [product, setProduct] = useState (null)
-  
   const [loading, setLoading] = useState (false)
   const [error, setError] = useState ("")
 
@@ -70,40 +67,52 @@ if (!product) return null; // This prevents the "null" error
           <div className="space-y-4 ">
            {product.images?.slice (0,4).map((img, index)=>(
             <div key={index} className="w-[170px] h-[138px] bg-[#f5F5F5] rounded-sm flex items-center justify-center">
-              <img src={img} alt="" />
+              <img src={img} alt="" className="w-[121px] h-[114px]"/>
             </div>
             
            ))}
            </div>
           <div className="w-[500px] h-[600px] bg-[#f5F5F5] rounded-sm flex items-center justify-center">
-            <img src={product.thumbnail} alt="" />
+            <img src={product.thumbnail} alt="product.title" className=""/>
           </div>
            
     
           <div className="">
             
               <section >
-                <div className="space-y-6">
+                <div className="space-y-4">
                  <h2 className="font-inter font-semibold text-2xl leading-6 tracking-[3]">
               {product.title}
             </h2>
              <p className="font-poppins font-normal text-[14px] leading-5 border-b pb-5 w-[373px]">{product.description}</p>
-            <div className="flex gap-3">
-              {product.rating}
-              <p className="font-poppins font-normal text-[14px] leading-5 opacity-50">
-                {/* {review} */}
-
+            <div className="flex gap-3 ">
+          
+              {[1,2,3,4,5].map((star)=>{
+                const rating = product.rating
+                if (rating >= star){
+                  return <img src={star_Icon} alt="" />
+                }else if (rating >=star - 0.5){
+                  return <img src={HalfStar} alt="" />
+                }
+              })}
+             
+              <p className="font-poppins font-normal text-[14px] leading-5 ">
+                {product.review}
               </p>
-              <p className="font-poppins font-normal text-[14px] leading-5 text-[#00FF66]">
-                {product.price}
-                <span className="text-black opacity-50">|</span> In Stock
-              </p>
+                <div className="flex items-center justify-center gap-5">
+                  <span className="text-black ">|</span>
+                <p className="font-poppins font-normal text-[14px] leading-5 text-[#00FF66]">{product.stock} </p>
+                <span>In stock</span> 
+                </div>
             </div>
+              <p className="font-inter font-normal text-[24px] leading-6 tracking-[3%] ">
+                {product.price}
+              </p>
                 </div>
               </section>
           
              
-             <div className="space-y-6">
+             <div className="space-y-6 py-5">
             <div className="flex gap-7 ">
               <p className="gap-5 font-inter font-normal text-[20px] leading-5 ">
                 Colours:

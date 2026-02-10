@@ -9,6 +9,7 @@ import halfIcon from "../../assets/star-half-filled.svg"
 import emptyIcon from "../../assets/EmptyStar.svg"
 import Navbar from "../../Component/Layout/Navbar";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 function Wishlist() {
@@ -59,7 +60,9 @@ useEffect(()=>{
               <div key={WishlistDetailsData.id} className="">
                 <section className="wrapper relative w-[270px] h-[250px] bg-[#f5f5f5] mb-3">
                   <div>
+                   <Link to = {`/product/${WishlistDetailsData.id}`}>
                     <img src={WishlistDetailsData.thumbnail} alt={WishlistDetailsData.title} className="absolute inset-0 m-auto w-[190px] h-[180px]"/>
+                   </Link>
                   </div>
                   
                       <div className=" flex justify-between item- w-full absolute top-3 p-3">
@@ -71,6 +74,14 @@ useEffect(()=>{
                           />
                         </button>
                       </div>
+
+                      <div className="group">
+               {WishlistDetailsData && (
+                <p className=" group-hover:hover  absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center text-white bg-[black]">
+                  Add To Cart
+                </p>
+               )}
+            </div> 
                 </section>
                 <div className="space-y-3">
                 
@@ -122,7 +133,11 @@ useEffect(()=>{
               <div key={WishlistDetailsData.id} className="">
                 <section className="wrapper relative w-[270px] h-[250px] bg-[#f5f5f5] mb-3">
                   <div>
-                    <img src={WishlistDetailsData.thumbnail} alt={WishlistDetailsData.title} className="absolute inset-0 m-auto w-[190px] h-[180px]"/>
+                
+
+                   <Link to = {`/product/${WishlistDetailsData.id}`}>
+                    <img src={WishlistDetailsData.thumbnail} alt={WishlistDetailsData.title} className="absolute inset-0 m-auto w-[190px] h-[180px] " />
+                   </Link>
                   </div>
                   
                       <div className=" flex justify-between item- w-full absolute top-3 p-3">

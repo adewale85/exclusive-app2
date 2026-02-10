@@ -27,12 +27,7 @@ function SidebarCategoryDetails() {
     "mens-shoes",
     "mens-watches",
     "mobile-accessories",
-    "motorcycle",
-    "skin-care",
-    "smartphones",
-    "sports-accessories",
-    "sunglasses",
-  
+    
   ];
 
   // const [data, setData] = useState <categories|null> (null)

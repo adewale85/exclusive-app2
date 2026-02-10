@@ -1,9 +1,78 @@
 
 import SlideImage from "../../../assets/Side Image.svg"
 import Google_icon from "../../../assets/Icon-Google.svg"
+import { useState } from "react"
 
 
-function SignUp() {
+function SignUp () {
+  
+//   const [name, setName] = useState ("")
+//   const [email, setEmail] = useState ("")
+//   const [password, setPassword] = useState (' ')
+//   const [loading, setLoading] = useState (false)
+//   const [error, setError] = useState (null)
+
+
+//   const handleSignUp = async () =>{
+//     setLoading (true)
+//     setError ("")
+
+//     const userData = {
+//       firstName:name,
+//       email: email,
+//       password: password
+//     };
+
+//     try{
+//       const response = await fetch ("https://dummyjson.com/users/add", {
+//         method: "POST",
+//         headers: {"Content-Type": "application/json"},
+//         body:JSON.stringify(userData)
+//       })
+
+//       const data = await response.json
+
+//       if(response.ok){
+//         console.log( "User created successful",data);
+//       } else {
+//         setError ("Fail to create account")
+//       } catch (error) {
+//         setError ("Network fail")
+//         console.error(error);
+        
+//       } finally {
+//         setLoading(fasle)
+//       }
+
+//     }
+
+//   }
+
+// async function  SignUp ()  
+
+//   {
+//     let item = {userName,password,email}
+//     console.warn(item)
+
+//     let result = await fetch ("https://dummyjson.com/users/add",{
+//         method: 'POST',
+//         headers:{
+//               "Content-Type": "application/json",
+//         } ,
+//         body:JSON.stringify({
+//           firstName: userName,
+//           email: email,
+//           password: password
+//         })
+//       });
+
+//       result = await result.json()
+//       console.warn("result", result);
+      
+
+//   }
+  
+
   return (
     
 <div>
@@ -17,20 +86,20 @@ function SignUp() {
        <div className='space-y-8'>
          <div className='text-black flex items-center justify-center right-3'>
           <label htmlFor="" className=''></label>
-          <input type="name" name='name' placeholder='Enter your Name' className='w-[370px] p-2 border-0 border-b focus:outline-none border-b-black opacity-50'/>
+          <input type="name" name='name' placeholder='Enter your Name' onChange={(e)=>setName(e.target.value)} className='w-[370px] p-2 border-0 border-b focus:outline-none border-b-black opacity-50'/>
          </div>
         
          <div className='text-black flex items-center justify-center right-3'>
           <label htmlFor="" className=''></label>
-          <input type="mail" name='mail' placeholder='Email or Phone Number' className='w-[370px] p-2 border-0 border-b focus:outline-none border-b-black opacity-50'/>
+          <input type="mail" name='mail' placeholder='Email or Phone Number' onChange={(e)=>setEmail(e.target.value)} className='w-[370px] p-2 border-0 border-b focus:outline-none border-b-black opacity-50'/>
         </div>
         
          <div className='text-black flex items-center justify-center right-3'>
           <label htmlFor="" className=''></label>
-          <input type="password" name='password' placeholder='Password' className='w-[370px] p-2 border-0 border-b focus:outline-none border-b-black opacity-50'/>
+          <input type="password" name='password' placeholder='Password' onChange={(e)=>setPassword(e.target.value)} className='w-[370px] p-2 border-0 border-b focus:outline-none border-b-black opacity-50'/>
         </div>
-        <button className="w-[371px] h-14 bg-[#d64040] text-white font-poppins font-medium text-[16px] leading-6 rounded-sm ">
-          Create Account
+        <button onClick={SignUp} className="w-[371px] h-14 bg-[#d64040] text-white font-poppins font-medium text-[16px] leading-6 rounded-sm ">
+         Create Account
         </button>
         <div className=' w-[371px] h-14 border-1.2 border-[#00000066] rounded-sm flex items-center justify-center gap-5'>
           <span><img src={Google_icon} alt="Google_icon" /></span>
@@ -51,7 +120,9 @@ function SignUp() {
 
 
       </div>
-  )
-}
+  )}
+
+
 
 export default SignUp
+
