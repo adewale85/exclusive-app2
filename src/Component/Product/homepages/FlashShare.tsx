@@ -1,140 +1,127 @@
-
-
 import { useCountdown } from "../../../utils/useCountdown";
-
 import { Link } from "react-router-dom";
 import Myproducts from "../../Layout/Myproducts";
 
-
-import LeftArrow from "../../../assets/LeftArrow.svg"
-import RightArrow from "../../../assets/RightArrow.svg"
-
-
- 
-
+import LeftArrow from "../../../assets/LeftArrow.svg";
+import RightArrow from "../../../assets/RightArrow.svg";
 
 const FlashShare = () => {
+  const { days, hours, minutes, seconds } =
+    useCountdown("2026-02-01");
 
-//  const [displayLimit,setDisplayLimit] = useState (4)
-//  const handleNext = () => {
-//   setDisplayLimit (displayLimit + 1)
-//  }
-//  const handlePrev = () =>{
-//   setDisplayLimit (displayLimit - 1)
-//  }
-
-
-
-
-
- 
-
-   const { days, hours, minutes, seconds } =
-    useCountdown("2026-02-01"); 
+    const Dots = () => (
+  <div className="flex flex-col gap-2 md:gap-3 shrink-0">
+    <div className="md:size-[5px] size-[3px] bg-red-500 rounded-full"></div>
+    <div className="md:size-[5px] size-[3px] bg-red-500 rounded-full"></div>
+  </div>
+);
 
   return (
-    <div className="Wrapper space-y-5">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-12  ">
-          <div className="w-[13.188rem] h-[6.438rem]  ">
-            <div className="flex gap-3 items-center">
-              <div className="w-[1.25rem] h-[2.5rem] bg-red-500 rounded-md"></div>
-              <div className="font-semibold text-[1rem] leading-5">
-                Today’s
-              </div>
+    <div className="Wrapper space-y-6 md:space-y-10">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row items-center justify-between">
+        
+        {/* Title */}
+        <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3">
+            <div className="w-[1.25rem] h-[2.5rem] bg-red-500 rounded-md"></div>
+            <span className="font-semibold text-[1rem]">
+              Today’s
+            </span>
+          </div>
+
+          <h2 className="md:text-[36px] text-[25px] leading-8 tracking-[4%]">
+            Flash Sales
+          </h2>
+        </div>
+
+        {/* Countdown + Arrows */}
+        <div className="flex flex-col md:flex-row items-center justify-between w-full md:w-auto">
+          
+          {/* Countdown */}
+          <div className="flex items-center  gap-4 md:gap-6 overflow-x-auto md:overflow-visible">
+            
+            {/* Days */}
+            <div className="w-[46px] text-center shrink-0">
+              <p className="font-medium md:text-[1rem] text-[12px]">
+                Days
+              </p>
+              <p className="font-bold md:text-[2rem] text-[1rem]">
+                {String(days).padStart(2, "0")}
+              </p>
             </div>
-            <div className=" text-[2.25rem] leading-[3rem] tracking-[4%]">
-              Flash Sales
+
+            <Dots />
+
+            {/* Hours */}
+            <div className="w-[46px] text-center shrink-0">
+              <p className="font-medium md:text-[1rem] text-[12px]">
+                Hours
+              </p>
+              <p className="font-bold md:text-[2rem] text-[1rem]">
+                {String(hours).padStart(2, "0")}
+              </p>
+            </div>
+
+            <Dots />
+
+            {/* Minutes */}
+            <div className="w-[46px] text-center shrink-0">
+              <p className="font-medium md:text-[1rem] text-[12px]">
+                Minutes
+              </p>
+              <p className="font-bold md:text-[2rem] text-[1rem]">
+                {String(minutes).padStart(2, "0")}
+              </p>
+            </div>
+
+            <Dots />
+
+            {/* Seconds */}
+            <div className="w-[46px] text-center shrink-0">
+              <p className="font-medium md:text-[1rem] text-[12px]">
+                Seconds
+              </p>
+              <p className="font-bold md:text-[2rem] text-[1rem]">
+                {String(seconds).padStart(2, "0")}
+              </p>
             </div>
           </div>
 
-          <div className="flex ">
-            <div className="flex gap-5">
-              <div className="w-[46px] h-[50px]  mt-8 ">
-                <div className="font-medium text-[1rem] leading-4">Days</div>
-                
-                <div className="font-bold text-[2rem] leading-8 tracking-[4%]">
-                {String(days).padStart(2, "0")}
-                </div>
-
-              </div>
-
-              <div className=" flex flex-col gap-3 mt-14">
-                <div className="w-[5px] h-[5px] bg-red-500 rounded-full"></div>
-                <div className="w-[5px] h-[5px] bg-red-500 rounded-full"></div>
-              </div>
-
-              <div className="w-[46px] h-[50px] mt-8">
-                <div className="font-medium text-[1rem] leading-4">Hours</div>
-                <div className="font-bold text-[2rem] leading-8 tracking-[4%]">
-                  {String(hours).padStart(2,"0")}
-                </div>
-              </div>
-
-              <div className=" flex flex-col gap-3 mt-14">
-                <div className="w-[5px] h-[5px] bg-red-500 rounded-full"></div>
-                <div className="w-[5px] h-[5px] bg-red-500 rounded-full"></div>
-              </div>
-
-              <div className="w-[2.875rem] h-[3.125rem]  mt-8">
-                <div className="font-medium text-[1rem] leading-4">Minutes</div>
-                <div className="font-bold text-[2rem] leading-8 tracking-[4%]">
-                  {String(minutes).padStart(2, "0")}
-                </div>
-              </div>
-
-              <div className=" flex flex-col gap-3 mt-14">
-                <div className="w-[5px] h-[5px] bg-red-500 rounded-full"></div>
-                <div className="w-[5px] h-[5px] bg-red-500 rounded-full"></div>
-              </div>
-
-              <div className="w-[2.875rem] h-[3.125rem] mt-8">
-                <div className="font-medium text-[1rem] leading-4">Seconds</div>
-                <div className="font-bold text-[2rem] leading-8 tracking-[4%]">
-                  {String(seconds).padStart(2, "0")}
-                </div>
-              </div>
-            </div>
+          {/* Arrows */}
+          <div className="flex gap-3">
+            <img
+              src={LeftArrow}
+              alt="Previous"
+              className="md:w-[46px] w-7 h-[46px] cursor-pointer"
+            />
+            <img
+              src={RightArrow}
+              alt="Next"
+              className="md:w-[46px] w-7 h-[46px] cursor-pointer"
+            />
           </div>
         </div>
-         <div className="flex gap-3">
-          <img src={LeftArrow} alt=""  className="w-[46px] h-[46px]" />
-          <img src={RightArrow} alt="" className="w-[46px] h-[46px]" />
-        </div> 
       </div>
 
+      <Myproducts />
 
-      
-
-      <div>
-        <Myproducts/>
-      </div>
-
-       {/* <div>
-               {bg && (
-                <p className={`absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center text-white 
-                ${bg ? 'bg-[black]' : 'bg-transparent'} `}>
-                  Add To Cart
-                </p>
-               )}
-            </div> 
-       */}
-     
-
-      
-        <div className="flex items-center justify-center py-22">
+      {/* View All */}
+      <div className="flex items-center justify-center py-10 lg::py-20">
         <Link to="/">
-        <button  className="w-[234px] h-14 bg-primary rounded-sm text-white text-[16px] font-medium leading-6 font-poppins">View All Products</button>
+          <button className="w-[234px] h-14 bg-primary rounded-sm text-white text-[16px] font-medium">
+            View All Products
+          </button>
         </Link>
+      </div>
 
-      </div>
-      <div className="wrapper border-b-[0.5px] opacity-30 ">
-        
-      </div>
+      {/* Divider */}
+      <div className="border-b-[0.5px] opacity-30"></div>
     </div>
   );
 };
 
 export default FlashShare;
 
+/* Small helper (keeps JSX clean, layout unchanged) */
 

@@ -6,82 +6,61 @@ import { useState } from "react"
 
 function SignUp () {
   
-//   const [name, setName] = useState ("")
-//   const [email, setEmail] = useState ("")
-//   const [password, setPassword] = useState (' ')
-//   const [loading, setLoading] = useState (false)
-//   const [error, setError] = useState (null)
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState(""); // Fixed: empty string instead of space
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSignUp = async () => {
+    setLoading(true);
+    setError("");
+
+    const userData = {
+      firstName: name,
+      email: email,
+      password: password
+    };
+
+    try {
+      const response = await fetch("https://dummyjson.com/users/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData)
+      });
+
+      // Fixed: added parentheses () to .json()
+      const data = await response.json(); 
+
+      if (response.ok) {
+        console.log("User created successfully", data);
+        // You might want to redirect the user or clear inputs here
+      } else {
+        setError("Failed to create account");
+      } 
+    } catch (error) { // Fixed: This block is now properly aligned
+      setError("Network failure");
+      console.error(error);
+    } finally {
+      setLoading(false); // Fixed: typo 'fasle' to 'false'
+    }
+  };
 
 
-//   const handleSignUp = async () =>{
-//     setLoading (true)
-//     setError ("")
 
-//     const userData = {
-//       firstName:name,
-//       email: email,
-//       password: password
-//     };
 
-//     try{
-//       const response = await fetch ("https://dummyjson.com/users/add", {
-//         method: "POST",
-//         headers: {"Content-Type": "application/json"},
-//         body:JSON.stringify(userData)
-//       })
 
-//       const data = await response.json
-
-//       if(response.ok){
-//         console.log( "User created successful",data);
-//       } else {
-//         setError ("Fail to create account")
-//       } catch (error) {
-//         setError ("Network fail")
-//         console.error(error);
-        
-//       } finally {
-//         setLoading(fasle)
-//       }
-
-//     }
-
-//   }
-
-// async function  SignUp ()  
-
-//   {
-//     let item = {userName,password,email}
-//     console.warn(item)
-
-//     let result = await fetch ("https://dummyjson.com/users/add",{
-//         method: 'POST',
-//         headers:{
-//               "Content-Type": "application/json",
-//         } ,
-//         body:JSON.stringify({
-//           firstName: userName,
-//           email: email,
-//           password: password
-//         })
-//       });
-
-//       result = await result.json()
-//       console.warn("result", result);
-      
-
-//   }
   
 
   return (
     
-<div>
+<div className="py-12 lg:py-2">
    
-    <div className='w-full max-w-[1305px] mx-auto  h-[781px] flex items-center justify-center gap-20 '>
-      <div>
-        <img src={SlideImage} alt="" />
+    <div className='w-full max-w-full Wrapper lg:h-[781px] h-auto flex lg:flex-row flex-col items-center justify-center gap-20 '>
+      <div className="py-5">
+        <img src={SlideImage} alt="slide" />
       </div>
-      <div className=' space-y-8'>
+      <div className=' space-y-8  '>
         <h1 className='font-inter font-medium text-[36px] leading-7.5 tracking-[4%]'>Create an account</h1>
        <div className='space-y-8'>
          <div className='text-black flex items-center justify-center right-3'>
@@ -108,9 +87,9 @@ function SignUp () {
           
         </button>
         </div>
-        <div className=' flex gap-12 items-center justify-center'>
+        <div className=' flex lg:flex-row flex-col gap-12 items-center justify-center'>
           <h3 className='font-poppins font-normal text-base leading-6'>Already have account?</h3>
-          <li className="list-none"><a href="/Log in" className='font-poppins font-medium text-base leading-6 border-b-2'>Login</a></li>
+          <li className="list-none"><a href="/Log in" className='font-poppins font-medium lg:text-base text-2xl leading-6 border-b-2'>Login</a></li>
        
         </div>
        </div>
@@ -125,4 +104,3 @@ function SignUp () {
 
 
 export default SignUp
-

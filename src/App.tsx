@@ -1,15 +1,9 @@
 
 
 import SignUp from './pages/auth/signup/SignUp'
-
-
-
 import Layout from './Component/Layout/Layout'
 import { Route, Routes } from 'react-router-dom'
-
-
-import Homepages from './pages'
-
+import Homepages from './Component/Product/homepages'
 import Login from './pages/auth/login/Login'
 import Wishlist from './pages/wishlist/Wishlist'
 import Cart from './pages/cart/Cart'
@@ -18,27 +12,16 @@ import Account from './pages/Account'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Error from './pages/Error'
-
-
-
-
-
 import AllProductDetails from './pages/AllProductDetails'
-
-
-
-
-
+import Navbar from './Component/Layout/Navbar'
+import Footer from './Component/Layout/Footer'
 
 
 
 function App() {
-
-
-
-
-  return (
-   
+return (
+   <main>
+    <Navbar/>
       <Routes>
         <Route path="/" element={<Layout />} >
           <Route index element={<Homepages />} />
@@ -48,7 +31,7 @@ function App() {
         
         </Route>
          
-         <Route path="wishlist" element={<Wishlist />} />
+         <Route path="Wishlist" element={<Wishlist />} />
          <Route path="cart" element={<Cart />} />
          <Route path="checkout" element={<Checkout />} />
          <Route path="account" element={<Account />} />
@@ -56,21 +39,12 @@ function App() {
          <Route path="contact" element={<Contact/>} />
          <Route path="error" element={<Error/>} />
          <Route path="/product/:id" element={<AllProductDetails/>} />
-         
-         
-         
-      </Routes>
-   
+         </Routes>
+         <Footer/>
 
-
-
-
-
-
-
-
-
-  )
+         </main>
+          )
 }
+
 
 export default App

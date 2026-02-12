@@ -6,13 +6,13 @@ import SidebarCategoryDetails from "./SidebarCategory";
 function Sidebar() {
   
   return (
-    <section className=" Wrapper mt-5 flex gap-16 pb-22">
-      <div className="flex gap-12">
+    <section className=" Wrapper mt-5 flex md:flex-row flex-col gap-16 pb-22">
+      <div className="flex md:flex-row flex-col gap-12">
         <SidebarCategoryDetails />
 
         <div className="relative">
-          <div className=" flex relative w-[892px] h-full bg-black justify-between">
-            <div className="p-12 space-y-10 ">
+          <div className="flex md:flex-row flex-col relative md:w-[892px] w-full h-full bg-black justify-between">
+            <div className="md:p-12 p-6 space-y-10 ">
               <div className="flex gap-8 items-center">
                 <img
                   src={IphoneIcon}
@@ -41,7 +41,9 @@ function Sidebar() {
             </div>
 
            
-            <Banner/>
+            <div className="flex md:flex-row flex-col items-center">
+              <Banner/>
+            </div>
            
 
           

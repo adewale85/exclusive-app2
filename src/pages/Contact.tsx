@@ -1,5 +1,4 @@
 
-import Navbar from '../Component/Layout/Navbar'
 import phoneIcon from "../assets/icons-phone.svg"
 import MailIcon from "../assets/icons-mail.svg"
 import Footer from '../Component/Layout/Footer'
@@ -11,14 +10,13 @@ function Contact() {
     
   return (
     <div>
-        <Navbar/>
-        <section className='Wrapper'>
-        <div className='Wrapper flex gap-3'>
+        <section className='Wrapper py-12'>
+        <div className='lg:px-0 px-12 flex gap-3'>
             <p className='font-poppins font-normal text-sm leading-5 text-[#818181]'>Home / </p>
             <p className='font-poppins font-normal text-sm leading-5'>About </p>
         </div>
 
-    <div className='flex gap-8 items-center justify-center'>
+    <div className='flex lg:flex-row flex-col gap-8 items-center justify-center'>
        <div className=' w-full h-[457px] bg-white shadow flex items-center justify-center my-12'>
        <div>
          <div className='border-b py-6'>
@@ -42,25 +40,25 @@ function Contact() {
         </div>
 
        
-        <div className='w-[998px] h-[457px]   p-12 bg-white shadow-md space-y-12'>
+        <div className='lg:w-[998px] w-full lg:h-[457px] h-[657px]  p-12 bg-white shadow-lg space-y-12'>
         
-        <div className='flex gap-5 item-center justify-center'>
-            <div className='w-[235px] h-[50px] bg-[#F5F5f5] flex items-center p-4'>
+        <div className='flex lg:flex-row flex-col gap-5 item-center justify-center'>
+            <div className='lg:w-[235px] w-full h-[50px] bg-[#F5F5f5] flex items-center p-4'>
                 <input type="text" placeholder='Your Name *' className='w-full h-[30px]'/>
             </div>
-            <div className='w-[235px] h-[50px] bg-[#F5F5f5] flex items-center p-4'>
+            <div className='lg:w-[235px] w-full h-[50px] bg-[#F5F5f5] flex items-center p-4'>
                 <input type="text" placeholder='Your Email *' className='w-full h-[30px]'/>
             </div>
-            <div className='w-[235px] h-[50px] bg-[#F5F5f5] flex items-center p-4'>
+            <div className='lg:w-[235px] w-full h-[50px] bg-[#F5F5f5] flex items-center p-4'>
                 <input type="text" placeholder='Your Phone *' className='w-full h-[30px]'/>
             </div>
         </div>
 
         <div className='h-[207px] bg-[#f5F5F5] '>
-           <input type="text" placeholder='Your Message' className='p-4 w-[637px] h-[207px]'/> 
+           <input type="text" placeholder='Your Message' className='p-4 w-[637px] h-[207px] '/> 
         </div>
 
-           <div className='flex items-end justify-end'>
+           <div className='flex lg:items-end items-center lg:justify-end justify-center'>
              <Link to="/Error"> <button className='w-[215px] h-11 bg-red-500 text-white font-medium font-poppins text-[16px] leading-6'
               >
                 Send Message
@@ -71,7 +69,7 @@ function Contact() {
         </div>
 
         </section>
-        <Footer/>
+        
     </div>
   )
 }

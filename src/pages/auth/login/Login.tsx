@@ -54,18 +54,18 @@ function Login() {
 
   
   return (
-    <div className="Wrapper h-[781px] flex items-center gap-20">
+    <div className="w-full max-w-[1305px] Wrapper lg:h-[781px] h-auto Wrapper lg:px-0 px-4  py-5 lg:py-2 flex flex-col lg:flex-row items-center justify-center lg:gap-30 gap-5  ">
       
-      <div>
+      <div className="">
         <img src={SlideImage} alt="Slide" />
       </div>
 
       
       <div className="space-y-8">
-        <header className="space-y-3">
-          <h1 className="text-[36px] font-medium leading-tight">Log in to Exclusive</h1>
-          <p className="font-poppins text-[16px]">Enter your details below</p>
-        </header>
+        <div className="space-y-5">
+          <h1 className="lg:text-[36px] text-[20px] font-medium leading-tight">Log in to Exclusive</h1>
+          <p className="font-poppins lg:text-[20px] text-sm">Enter your details below</p>
+        </div>
 
         <div className="space-y-8">
           <input
@@ -73,7 +73,7 @@ function Login() {
             placeholder="Username"
             value={email}
             onChange={(e)=> setEmail(e.target.value)}
-            className="w-[370px] p-2 border-b border-gray-300 outline-none focus:border-black transition-colors"
+            className=" lg:w-[370px] w-full  p-2 border-b border-gray-300 outline-none focus:border-black transition-colors"
           />
 
           <input
@@ -81,18 +81,18 @@ function Login() {
             placeholder="Password"
             value={password}
             onChange={(e)=> setPassword (e.target.value)}
-            className="w-[370px] p-2 border-b border-gray-300 outline-none focus:border-black transition-colors"
+            className="lg:w-[370px] w-full p-2 border-b border-gray-300 outline-none focus:border-black transition-colors"
           />
 
-          <div className="flex justify-between items-center">
-            <button onClick={handleLogin} className="w-[143px] h-14 bg-[#Db4444] text-white rounded-sm font-medium hover:bg-[#c33a3a] transition-all">
+          <div className="flex lg:flex-row flex-col gap-12 items-center">
+            <button onClick={handleLogin} className="lg:w-[143px] w-full h-14 bg-[#Db4444] text-white rounded-sm font-medium hover:bg-[#c33a3a] transition-all">
               {loading? "Logging..." : "Login"}
             </button>
 
-            <button className="text-[#Db4444] text-[16px] hover:underline transition-all">
+            <button className="lg:w-[143px] w-full text-[#Db4444] text-[16px] hover:underline transition-all">
               Forget Password?
             </button>
-            {error && <p className="text-red-500">{error}</p> }
+            {error && <p className="text-red-500 flex flex-col">{error}</p> }
             {user && (
               <p>Welcome back  </p>
             )}

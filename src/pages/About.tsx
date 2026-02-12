@@ -1,10 +1,6 @@
 
 
 
-import Footer from '../Component/Layout/Footer'
-import Navbar from '../Component/Layout/Navbar'
-
-
 import SlideImage from "../assets/Side Image (1).svg"
 import { AboutInfopropsData } from '../constants/AboutInfo'
 import { NewArrivalData } from '../constants/Arrival'
@@ -12,15 +8,14 @@ import { PeopleSectionData } from '../constants/People\'sSection'
 
 function About() {
   return (
-    <main>
-        <Navbar />
-      <div className='pl-95'>
+    <main className='Wrapper px-4 lg:px-0'>
+      <div className=''>
           <div className='flex gap-3 py-12'>
             <p className='font-poppins font-normal text-sm leading-5'>Home / </p>
             <p className='font-poppins font-normal text-sm leading-5'>About </p>
         </div>
-       <div className='flex items-center justify-between'>
-         <div className='w-[525px]'>
+       <div className='flex flex-col-reverse lg:flex-row items-center gap-6'>
+         <div className='w-full lg:w-[525px]'>
             <h2 className=
             'font-inter font-semibold text-[54px] leading-16 tracking-[6%] pb-6'>Our Story</h2>
 
@@ -39,30 +34,30 @@ function About() {
        </div>
          </div>
 
-<div className='Wrapper py-22'>
-  <div className="flex items-center justify-center gap-6 py-12 ">
+<div className=''>
+  <div className="flex flex-col lg:flex-row items-center justify-center gap-6 py-12 ">
   {AboutInfopropsData.map(({ id, title, subTitle, image }) => (
-    <section
+    <div
       key={id}
-      className="w-[270px] h-[230px] flex items-center justify-center rounded-sm border-[#0000004D] border shadow-sm"
+      className="w-full lg:w-[270px] h-[230px] flex items-center justify-center rounded-sm border-[#0000004D] border shadow-sm"
     >
       <div className="flex flex-col items-center justify-center text-center">
         <img src={image} alt="" className="size-20" />
         <p className="font-inter font-bold text-[32px]">{title}</p>
         <p className="font-poppins text-[16px]">{subTitle}</p>
       </div>
-    </section>
+    </div>
   ))}
 </div>
 
-<div className='my-6 flex flex-wrap items-center gap-6 py-22'>
+<div className='flex flex-col lg:flex-row items-center gap-6'>
   {PeopleSectionData.map(({id, title, subTitle, image, twitterImg, instagramImg, linkdinImg}) => (
-    <section key={id} className='w-[370px] h-[430px] bg-[#f5F5F5] rounded-sm'>
+    <div key={id} className='w-full lg:w-[370px] bg-[#f5F5F5] rounded-sm'>
       <div className='
        flex items-center justify-center pt-8.5'>
         <img src={image} alt="" className='' />
       </div>
-      <div className='space-y-2 py-5'>
+      <div className='space-y-2 p-5'>
         <h2 className='font-inter font-medium text-[32px] leading-7.5 tracking-[4%]'>{title}</h2>
         <p className='font-poppins font-normal text-[16px] leading-6'>{subTitle}</p>
         <div className='flex gap-3 text-red-400'>
@@ -71,11 +66,11 @@ function About() {
           <img src={linkdinImg} alt="" />
         </div>
       </div>
-    </section> 
+    </div> 
   ))}
 </div>
 </div>
-      <div className='pb-12 flex Wrapper gap-12 items-center justify-center'>
+      <div className='py-12 flex Wrapper gap-12 items-center justify-center'>
         
         <div className=' size-6 rounded-full bg-[#818181]   opacity-30'></div> 
         <div className=' size-6 rounded-full bg-[#818181]   opacity-30'></div> 
@@ -90,7 +85,7 @@ function About() {
       </div>
       
       
-         <div className='py-12 flex gap-22 items-center justify-center'>
+         <div className='py-12 flex flex-col lg:flex-row gap-22 items-center justify-center'>
                  {NewArrivalData.map(({id, image, title, subTitle}) =>(
                     <section key={id} className=' flex flex-col items-center justify-center'>
                         <div><img src={image} alt="Delivery-icon" className='size-20 pb-5'/></div>
@@ -110,10 +105,7 @@ function About() {
                 
                 )}
                </div>
-      
-                <div className='pt-22'>
-                  <Footer/>
-                </div>
+
      
     </main>
   )

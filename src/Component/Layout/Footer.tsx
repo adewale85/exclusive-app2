@@ -13,12 +13,11 @@ import Instagram_Icon from "../../assets/icon-instagram.svg"
 function Footer() {
   return (
     <div className="bg-black text-white py-12">
-      <div className="Wrapper flex justify-between">
+      <div className="Wrapper flex md:flex-row flex-col justify-between items-center">
 
         {/* === UNIQUE SECTION === */}
         <div className="space-y-5">
-          
-
+        
          <ul>
           <li className=" font-inter font-bold text-2xl list-none">
             <a href="/"> Exclusive</a>
@@ -28,7 +27,7 @@ function Footer() {
           <h3 className="font-poppins text-[20px] font-medium">Subscribe</h3>
           <p className="font-poppins text-[16px]">Get 10% off your first order</p>
 
-          <div className="w-[220px] h-12 relative flex items-center border rounded-sm">
+          <div className="md:w-[220px] w-[333px] h-12 relative flex items-center border rounded-sm">
             <input
               type="text"
               placeholder="Enter your email"
@@ -42,16 +41,17 @@ function Footer() {
 
         {/* === MAPPED SECTIONS === */}
         {footerSections.map(({ title, items }, index) => (
-          <div key={index} className="space-y-5">
+          <div key={index} className="space-y-5 md:py-0 py-8 ">
             <h2 className="font-poppins font-medium text-[20px]">{title}</h2>
 
             {items.map((item, i) => (
-              <p key={i} className=" font-normal text-[16px] leading-6 w-[175px]">
+              <p key={i} className=" font-normal text-[16px] leading-6 w-[175px] ">
                 {item}
               </p>
             ))}
           </div>
         ))}
+        
 
         {/* === UNIQUE DOWNLOAD SECTION === */}
         <div className="space-y-5">

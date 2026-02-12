@@ -4,14 +4,14 @@ import { browseByCategoryData } from "../../../constants/category";
 
 const BrowseByCategory = () => {
   return (
-    <div className="mt-12 Wrapper  ">
-      <div className='flex gap-3 items-center mb-5'>
-        <div className='w-5 h-10n bg-red-500 rounded-md'></div>
+    <div className="mt-12 Wrapper px-5  ">
+      <div className='flex gap-3 items-center md:mb-5 mb-2'>
+        <div className='w-5 h-10 bg-red-500 rounded-md'></div>
         <div className='font-poppins font-semibold text-[16px] leading-5 text-[#db4444]'> Categories</div>  
         </div> 
-      <h2 className="font-inter font-semibold text-4xl mb-12 text-left">Browse By Category</h2>
+      <h2 className="font-inter font-semibold md:text-4xl text-2xl mb-12 text-left">Browse By Category</h2>
 
-    <div className="flex gap-6 ">
+    <div className="Wrapper grid md:grid-cols-6 grid-cols-2 items-center justify-center gap-6 ">
         {browseByCategoryData?.map(({ id, title, image, active }) => (
   <div
   key={id}

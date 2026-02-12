@@ -36,45 +36,44 @@ useEffect(()=>{
 }, [])
 
   return (
-    <section className="mt-12 px-4 Wrapper ">
+    <main className="my-12 px-4 Wrapper ">
        <div className='flex gap-3 items-center mb-5'>
-        <div className='w-5 h-10 bg-red-500 rounded-md'></div>
+        <div className='w-5 h-10 bg-red-500 rounded-lg'></div>
         <div className='font-poppins font-semibold text-[16px] leading-5 text-[#db4444]'>This Month</div>  
         </div> 
-      <h2 className="font-inter font-semibold text-4xl leading-12 tracking-[4%] mb-12">Best Selling Products</h2>
+      <h2 className="font-inter font-semibold lg:text-4xl text-2xl leading-12 tracking-[4%] lg:mb-12 mb-2">Best Selling Products</h2>
 
 
-    <div className="flex items-center justify-between py-6">
+    <div className="flex lg:flex-row flex-col items-center lg:gap-8 gap-35 ">
       {data?.products.slice(5,9).map (BestSellingProductData=>(
-        <div key={BestSellingProductData.id} className="
-                       flex flex-col ">
+        <div key={BestSellingProductData.id} className="Wrapper relative lg:w-[270px] w-full  h-[250px] bg-[#f5f5f5] mb-3 ">
            
-         <section className="wrapper relative w-[270px] h-[250px] bg-[#f5f5f5] mb-3">
+         <section className=" relative lg:w-[270px] w-full h-[250px] bg-[#f5f5f5] mb-3">
             
               
                 <div className="flex justify-between p-2 relative  z-40">
                 
 
-                  <div className="flex flex-col space-y-2">
+                <div className="flex flex-col space-y-2">
                     <img src={Heart} alt="" className="w-8 h-8" />
                     <img src={Eye} alt="" className="w-8 h-8" />
                   </div>
-              
                 </div>
-                <div className="absolute inset-0 m-auto w-[190px] h-[180px]">
+
+              <div className="absolute inset-0 m-auto lg:w-[190px] w-full h-[180px]">
                   <Link to = {`/product/${BestSellingProductData.id}`}>
-                  <img src={BestSellingProductData.thumbnail} alt={BestSellingProductData.title} className="w-[190px] h-[180px] " />
+                  <img src={BestSellingProductData.thumbnail} alt={BestSellingProductData.title} className="lg:w-[190px] w-full h-[180px] " />
                   </Link>
              </div> 
 
-             {/* <div className="">
+             <div className="">
                {BestSellingProductData.description && (
                 <p className="absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center  
                  text-white bg-[black] ">
                  <p> Add To Cart</p>
                 </p>
                )}
-            </div> */}
+            </div>
             
             </section>
 
@@ -116,7 +115,7 @@ useEffect(()=>{
     </div>
      
     
-    </section>
+    </main>
   );
 };
 

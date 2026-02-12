@@ -49,7 +49,7 @@ if (!product) return null; // This prevents the "null" error
 
   return (
     <div>
-      <Navbar />
+      
       <div className="Wrapper ">
         <div className="flex gap-12 py-22">
           <p className="font-poppins font-normal text-[14px] leading-5 opacity-50">
@@ -210,10 +210,7 @@ if (!product) return null; // This prevents the "null" error
           <Myproducts />
         </div>
       </div>
-      <div className="">
-        {" "}
-        <Footer />
-      </div>
+      
     </div>
   );
 }

@@ -40,85 +40,66 @@ useEffect (()=>{
 }, [])
 
   return (
-    <section className=" Wrapper ">
+    <section className=" Wrapper lg:px-0 px-4  ">
       <div className='flex gap-3 items-center '>
         <div className='w-5 h-10 bg-red-500 rounded-md'></div>
         <div className='font-poppins font-semibold text-[16px] leading-5 text-[#db4444]'>Our products</div>  
         </div> 
-      <h2 className="font-inter font-semibold text-[36px] leading-12 tracking-[4%] my-6 mb-24">Explore Our Products</h2>
-      <div className="space-y-12">
-      <div className="flex items-center justify-between gap-5 Wrapper">
-        {data?.products.slice(10,14).map(ExploreOurProductsData=>(
-          <div key={ExploreOurProductsData.id}>
-            <section className="wrapper relative w-[270px] h-[250px] bg-[#f5f5f5] mb-3 ">
-              
-              <div className="flex justify-between p-3 relative ">
-                  <div className="flex flex-col space-y-2">
-                    <img src={Heart} alt="" className="w-8 h-8" />
-                    <img src={Eye} alt="" className="w-8 h-8"/>
-                  </div>
-                </div>
-                  <div className="absolute inset-0 m-auto w-[190px] h-[180px]">
-                   <Link to = {`/product/${ExploreOurProductsData.id}`}>
-                    <img src={ExploreOurProductsData.thumbnail} alt={ExploreOurProductsData.title} className=" " />
-                   </Link>
-                  </div>
+      <h2 className="font-inter font-semibold md:text-[36px] text-2xl leading-12 tracking-[4%] md:my-6 my-3 mb-24">Explore Our Products</h2>
 
-              <div className="group">
-               {ExploreOurProductsData && (
-                <p className=" group-hover:hover  absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center text-white bg-[black]">
-                  Add To Cart
-                </p>
-               )}
-            </div> 
+      <div className="pb-40 ">
 
-            </section>
-              <div className="font-poppins font-medium text-base leading-6 space-y-3">
-                <h5>{ExploreOurProductsData.title}</h5>
-                <p className="font-poppins font-medium text-base leading-6 text-[#DB4445] ">
-                  {ExploreOurProductsData.price}
-                </p>
-                 <div className='flex gap-3'>
-                        {[1,2,3,4,5].map((star)=>{
-                            const rating = ExploreOurProductsData.rating
-                            if (rating >= star){
-                                return <img src={StarIcon} alt="" />
-                            } else if (rating >=star-0.5){
-                                return <img src={halfIcon} alt="" />
-                            } else {
-                                <img src={emptyIcon} alt="" />
-                            }
-                        })}
-                        {/* <span>{ExploreOurProductsData.reviews}</span> */}
-                    </div>
-              </div>
-          </div>
-        ))}
-      </div>
-      <div className="flex items-center justify-between gap-5 Wrapper">
-        {data?.products.slice(15,19).map(ExploreOurProductsData=>(
-          <div key={ExploreOurProductsData.id}>
-            <section className="wrapper relative w-[270px] h-[250px] bg-[#f5f5f5] mb-3 ">
+
+      <div className="flex lg:flex-row flex-col items-center lg:gap-8 gap-35 lg:pb-40 pb-0 ">
+      {data?.products.slice(5,9).map (ExploreOurProductsData=>(
+        <div key={ExploreOurProductsData.id} className="Wrapper relative lg:w-[270px] w-full  h-[250px] bg-[#f5f5f5] mb-3 ">
+           
+         <section className=" relative lg:w-[270px] w-full h-[250px] bg-[#f5f5f5] mb-3">
+            
               
-              <div className="flex justify-between p-3 relative ">
-                  <div className="flex flex-col space-y-2">
+                <div className="flex justify-between p-2 relative  z-40">
+                
+
+                <div className="flex flex-col space-y-2">
                     <img src={Heart} alt="" className="w-8 h-8" />
                     <img src={Eye} alt="" className="w-8 h-8" />
                   </div>
                 </div>
-                  <div className="absolute inset-0 m-auto w-[190px] h-[180px]">
-                    <Link to = {`/product/${ExploreOurProductsData.id}`}>
-                    <img src={ExploreOurProductsData.thumbnail} alt={ExploreOurProductsData.title} className=" " />
-                   </Link>
-                  </div>
-            </section>
-              <div className="font-poppins font-medium text-base leading-6 space-y-3">
-                <h5>{ExploreOurProductsData.title}</h5>
-                <p className="font-poppins font-medium text-[16px] leading-6 text-[#DB4445] ">
-                  {ExploreOurProductsData.price}
+
+              <div className="absolute inset-0 m-auto lg:w-[190px] w-full h-[180px]">
+                  <Link to = {`/product/${ExploreOurProductsData.id}`}>
+                  <img src={ExploreOurProductsData.thumbnail} alt={ExploreOurProductsData.title} className="lg:w-[190px] w-full h-[180px] " />
+                  </Link>
+             </div> 
+
+             <div className="">
+               {ExploreOurProductsData.description && (
+                <p className="absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center  
+                 text-white bg-[black] ">
+                 <p> Add To Cart</p>
                 </p>
-                
-               <div className='flex gap-3'>
+               )}
+            </div>
+            
+            </section>
+
+            
+            <div className="space-y-2">
+            <div className="font-poppins font-medium text-base leading-6">
+               {ExploreOurProductsData.title}
+            </div>
+               <div className="space-x-5">
+                  <span className="font-poppins font-medium text-[16px] leading-6 text-[#DB4445] ">
+                    {ExploreOurProductsData.price}
+                  </span>
+                  <span className="line-through font-poppins font-medium text-[16px] leading-6">
+                     {ExploreOurProductsData.price}
+                  </span>
+                </div>
+
+               
+
+                <div className='flex gap-3'>
                         {[1,2,3,4,5].map((star)=>{
                             const rating = ExploreOurProductsData.rating
                             if (rating >= star){
@@ -131,15 +112,98 @@ useEffect (()=>{
                         })}
                         {/* <span>{flashShareData.reviews}</span> */}
                     </div>
-              </div>
-          </div>
-        ))}
-      </div>
-      </div>
+                  </div>
+        </div>
+
+
+      ))}
+      
+    </div>
+
+
+       <div className="flex lg:flex-row flex-col items-center lg:gap-8 gap-35 ">
+      {data?.products.slice(5,9).map (ExploreOurProductsData=>(
+        <div key={ExploreOurProductsData.id} className="Wrapper relative lg:w-[270px] w-full  h-[250px] bg-[#f5f5f5] mb-3 ">
+           
+         <section className=" relative lg:w-[270px] w-full h-[250px] bg-[#f5f5f5] mb-3">
+            
+              
+                <div className="flex justify-between p-2 relative  z-40">
+                
+
+                <div className="flex flex-col space-y-2">
+                    <img src={Heart} alt="" className="w-8 h-8" />
+                    <img src={Eye} alt="" className="w-8 h-8" />
+                  </div>
+                </div>
+
+              <div className="absolute inset-0 m-auto lg:w-[190px] w-full h-[180px]">
+                  <Link to = {`/product/${ExploreOurProductsData.id}`}>
+                  <img src={ExploreOurProductsData.thumbnail} alt={ExploreOurProductsData.title} className="lg:w-[190px] w-full h-[180px] " />
+                  </Link>
+             </div> 
+
+             <div className="">
+               {ExploreOurProductsData.description && (
+                <p className="absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center  
+                 text-white bg-[black] ">
+                 <p> Add To Cart</p>
+                </p>
+               )}
+            </div>
+            
+            </section>
+
+            
+            <div className="space-y-2">
+            <div className="font-poppins font-medium text-base leading-6">
+               {ExploreOurProductsData.title}
+            </div>
+               <div className="space-x-5">
+                  <span className="font-poppins font-medium text-[16px] leading-6 text-[#DB4445] ">
+                    {ExploreOurProductsData.price}
+                  </span>
+                  <span className="line-through font-poppins font-medium text-[16px] leading-6">
+                     {ExploreOurProductsData.price}
+                  </span>
+                </div>
+
+               
+
+                <div className='flex gap-3'>
+                        {[1,2,3,4,5].map((star)=>{
+                            const rating = ExploreOurProductsData.rating
+                            if (rating >= star){
+                                return <img src={StarIcon} alt="" />
+                            } else if (rating >=star-0.5){
+                                return <img src={halfIcon} alt="" />
+                            } else {
+                                <img src={emptyIcon} alt="" />
+                            }
+                        })}
+                        {/* <span>{flashShareData.reviews}</span> */}
+                    </div>
+                  </div>
+        </div>
+
+
+      ))}
+      
+    </div>
+
+
+    </div>
+
+      
+     
 
       
 
-      <div className="flex items-center justify-center py-22">
+      
+
+      
+
+      <div className="flex items-center justify-center ">
         <Link to="/AllProductDetails">
         <button  className="w-[234px] h-14 bg-primary rounded-sm text-white text-[16px] font-medium leading-6 font-poppins">View All Products</button>
         </Link>

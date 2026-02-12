@@ -41,13 +41,13 @@ function Myproducts() {
       }, [])
 
   return (
-    <div>
-        <div className="flex items-center justify-between pb-12">
+    <main className="Wrapper lg:px-0 px-4">
+        <div className="flex lg:flex-row flex-col items-center lg:gap-8 gap-40 py-12">
         {data?.products.slice(0,4).map(flashShareData=>(
-          <div key={flashShareData.id} className="wrapper relative w-[270px] h-[250px] bg-[#f5f5f5] mb-3">
+          <div key={flashShareData.id} className=" Wrapper relative w-[270px]  h-[250px] bg-[#f5f5f5] mb-3">
           
 
-          <section className="wrapper relative w-[270px] h-[250px] bg-[#f5f5f5] mb-3">
+          <section className="Wrapper relative w-[270px] h-[250px] bg-[#f5f5f5] mb-3">
             
               
                 <div className="flex justify-between p-2 relative ">
@@ -61,9 +61,9 @@ function Myproducts() {
                 </div>
                 </div>
 
-                <div className="absolute inset-0 m-auto w-[190px] h-[180px]">
+                <div className="absolute inset-0 m-auto lg:w-[190px] w-full h-[180px]">
                  <Link to = {`/product/${flashShareData.id}`}>
-                  <img src={flashShareData.thumbnail} alt={flashShareData.title} className="w-[190px] h-[180px] " />
+                  <img src={flashShareData.thumbnail} alt={flashShareData.title} className="lg:w-[190px] w-full h-[180px]   " />
                  </Link>
                 </div> 
 
@@ -120,7 +120,7 @@ function Myproducts() {
         ))}
 
       </div>
-    </div>
+    </main>
   )
 }
 

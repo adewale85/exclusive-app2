@@ -61,7 +61,7 @@ function SidebarCategoryDetails() {
 
 
   return (
-    <div className="w-[214px] h-[314px]">
+    <div className="w-[214px] h-[314px] md:block hidden">
       <div className="border-r-[0.5px]">
         <ul className=" space-y-3 ">
           {categories.map((category, index) => (

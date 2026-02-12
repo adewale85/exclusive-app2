@@ -16,10 +16,10 @@ function Banner() {
   
   return (
     <div className='space-y-4'>
-        <div className='w-[496px] h-[312px] object-cover rounded-lg '>
+        <div className='lg:flex-row flex-col lg:w-[496px] w-full h-[312px] object-cover rounded-lg  '>
             <img src={HeroFrameData[currentIndex].image} alt={`Slide ${currentIndex + 1}`} className='object-cover size-full'/>
         </div>
-        <div className='flex gap-5 items-center'>
+        <div className='flex gap-5 items-center justify-center'>
 
             {HeroFrameData.map((_, index)=>(
                 <div key={index} 
