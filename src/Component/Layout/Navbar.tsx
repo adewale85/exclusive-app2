@@ -4,6 +4,7 @@ import NavInput from "./NavInput";
 import { NavLink } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import DropNav from "./DropNav";
+import SidebarCategoryDetails from "./SidebarCategory";
 
 function Navbar() {
   const isloggedIn = false;
@@ -21,7 +22,11 @@ function Navbar() {
       <div className="Wrapper my-5 px-4 lg:px-0">
         <div className="flex items-center justify-between">
           
-          {/* Logo */}
+         
+          <div className="lg:hidden block">
+             <SidebarCategoryDetails />
+          </div>
+
           <NavLink to="/" className="font-inter font-bold text-[1.5rem] text-black">
             Exclusive
           </NavLink>

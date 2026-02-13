@@ -6,9 +6,11 @@ import SidebarCategoryDetails from "./SidebarCategory";
 function Sidebar() {
   
   return (
-    <section className=" Wrapper mt-5 flex md:flex-row flex-col gap-16 pb-22">
-      <div className="flex md:flex-row flex-col gap-12">
-        <SidebarCategoryDetails />
+    <section className="relative Wrapper mt-5 flex md:flex-row flex-col gap-16 pb-22">
+      <div className="flex lg:flex-row flex-col relative lg:gap-12 gap-3">
+        <div className="lg:block hidden">
+          <SidebarCategoryDetails />
+        </div>
 
         <div className="relative">
           <div className="flex md:flex-row flex-col relative md:w-[892px] w-full h-full bg-black justify-between">

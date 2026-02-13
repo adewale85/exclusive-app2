@@ -1,43 +1,66 @@
 import { type Exploreprops } from "../../../constants/Explore";
 import Heart from "../../../assets/Fill Heart.svg";
 import Eye from "../../../assets/Fill Eye.svg";
-import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa"; 
+
 import StarIcon from "../../../assets/Star.svg"
 import halfIcon from "../../../assets/star-half-filled.svg"
 import emptyIcon from "../../../assets/EmptyStar.svg"
 import { useEffect, useState } from "react";
-import { Link, Links } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 
 const ExploreOurProducts = () => {
 
-const [data, setData] = useState <Exploreprops|null>(null)
-const [loading, setLoading] = useState (false)
-const [error, setError] = useState  ("")
+// const [data, setData] = useState <Exploreprops|null>(null)
+// const [loading, setLoading] = useState (false)
+// const [error, setError] = useState  ("")
 
+
+// useEffect (()=>{
+//   const ExploreProduct = async () =>{
+    
+  
+//   setLoading(true)
+//   try{
+//     const response = await fetch ("https://dummyjson.com/products")
+//     if (!response.ok){
+//       throw new Error("Something went wrong")
+//     } const data = await response.json()
+//     setData (data)
+//     console.log(data);
+//   } catch (error:unknown){
+//     setError(error?.message)
+//     console.log(error);
+    
+//   }finally{
+//     setLoading(false)
+//   }
+//   }
+//   ExploreProduct()
+// }, [])
+
+const [data, setData] = useState <Exploreprops|null> (null)
+const [loading, setLoading] = useState (false)
+const [error, setError] = useState ("")
 
 useEffect (()=>{
   const ExploreProduct = async () =>{
-    
-  
-  setLoading(true)
-  try{
-    const response = await fetch ("https://dummyjson.com/products")
-    if (!response.ok){
-      throw new Error("Something went wrong")
-    } const data = await response.json()
-    setData (data)
-    console.log(data);
-  } catch (error:unknown){
-    setError(error?.message)
-    console.log(error);
-    
-  }finally{
-    setLoading(false)
-  }
+    setLoading(true)
+    try{
+      const response = await fetch ("https://dummyjson.com/products")
+      if(!response.ok){
+        throw new Error ("Something went wrong")
+      } const data = await response.json()
+        setData(data)
+        console.log(data);     
+    } catch (error:unknown){
+      setError(error?.message)
+    }finally{
+      setLoading(false)
+    }
   }
   ExploreProduct()
-}, [])
+},[])
 
   return (
     <section className=" Wrapper lg:px-0 px-4  ">

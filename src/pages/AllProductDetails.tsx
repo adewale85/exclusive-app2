@@ -9,10 +9,7 @@ import Delivery_Icon from "../assets/icon-delivery.svg";
 import Return_Delivery from "../assets/Icon-return.svg";
 import star_Icon from "../assets/Star.svg";
 import HalfStar from "../assets/star-half-filled.svg";
-
 import Myproducts from "../Component/Layout/Myproducts";
-import Footer from "../Component/Layout/Footer";
-
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -23,68 +20,68 @@ function AllProductDetails() {
   const [loading, setLoading] = useState (false)
   const [error, setError] = useState ("")
 
-  useEffect (() =>{
-    const myProductsInformation = async () => {
-      setLoading (true)
-     try {
-      const response = await fetch (`https://dummyjson.com/products/${id}`)
-      if(!response.ok) {
-        throw new Error ("Somethin went wrong")
-      } const data = await response.json ()
-      setProduct(data)
-      // console.log(product);  
-    } catch (error:unknown){
-      setError(error?.message)
-      console.log(error);
-    } finally{
-      setLoading(false)
+   useEffect (()=>{
+    const myproductsInformation = async () =>{
+      setLoading(true)
+      try{
+        const response = await fetch (`https://dummyjson.com/products/${id}`)
+        if(!response.ok){
+          throw new Error ("Something went wrong")
+        } const data = await response.json()
+          setProduct (data)
+      } catch (error:unknown){
+        setError(error?.message)
+        console.log(error);
+        
+      }finally{
+        setLoading(false)
+      }
     }
-  }
-  myProductsInformation()
-  }, [id] )
+    myproductsInformation()
+  },[id])
 
 if (loading) return <div className="text-center py-20">Loading product...</div>;
 if (error) return <div className="text-center py-20 text-red-500">{error}</div>;
-if (!product) return null; // This prevents the "null" error
+if (!product) return null; 
 
   return (
     <div>
       
-      <div className="Wrapper ">
-        <div className="flex gap-12 py-22">
-          <p className="font-poppins font-normal text-[14px] leading-5 opacity-50">
+      <div className="Wrapper lg:px-0 px-4">
+        <div className="flex lg:gap-12 gap-5 py-22">
+          <p className="font-poppins font-normal lg:text-[14px] text-[12px] leading-5 opacity-50">
             Account /
           </p>
-          <p className="font-poppins font-normal text-[14px] leading-5 opacity-50">
+          <p className="font-poppins font-normal lg:text-[14px] text-[12px] leading-5 opacity-50">
             Gaming /
           </p>
-          <p className="font-poppins font-normal text-[14px] leading-5">
+          <p className="font-poppins font-normal lg:text-[14px] text-[12px] leading-5">
            {product.title}
           </p>
         </div>
 
-        <div className="flex gap-12">
+        <div className="flex lg:flex-row flex-col gap-12">
           <div className="space-y-4 ">
            {product.images?.slice (0,4).map((img, index)=>(
-            <div key={index} className="w-[170px] h-[138px] bg-[#f5F5F5] rounded-sm flex items-center justify-center">
-              <img src={img} alt="" className="w-[121px] h-[114px]"/>
+            <div key={index} className="lg:w-[170px] w-40 lg:h-[138px] h-40 bg-[#f5F5F5] rounded-sm flex items-center justify-center">
+              <img src={img} alt="" className="lg:w-[121px] w-20 lg:h-[114px] h-20"/>
             </div>
             
            ))}
            </div>
-          <div className="w-[500px] h-[600px] bg-[#f5F5F5] rounded-sm flex items-center justify-center">
+          <div className="lg:w-[500px] w-full lg:h-[600px] h-auto bg-[#f5F5F5] rounded-sm flex items-center justify-center">
             <img src={product.thumbnail} alt="product.title" className=""/>
           </div>
            
     
-          <div className="">
+          <div className="lg:w-[399px] w-full">
             
               <section >
                 <div className="space-y-4">
-                 <h2 className="font-inter font-semibold text-2xl leading-6 tracking-[3]">
+              <h2 className="font-inter font-semibold text-2xl leading-6 tracking-[3]">
               {product.title}
             </h2>
-             <p className="font-poppins font-normal text-[14px] leading-5 border-b pb-5 w-[373px]">{product.description}</p>
+             <p className="font-poppins font-normal text-[14px] leading-5 border-b pb-5 lg:w-[373px] w-full">{product.description}</p>
             <div className="flex gap-3 ">
           
               {[1,2,3,4,5].map((star)=>{
@@ -146,7 +143,7 @@ if (!product) return null; // This prevents the "null" error
               </div>
             </div>
 
-            <div className="flex gap-5 ">
+            <div className="flex gap-5">
               <div className="flex">
                 <div className="w-10 h-11 border flex items-center justify-center font-poppins font-medium text-[20px] leading-7 rounded-l-sm">
                   -
@@ -160,7 +157,7 @@ if (!product) return null; // This prevents the "null" error
               </div>
 
               <div className="flex gap-5">
-                <button className="w-[165px] h-11 bg-[#Db4444] text-white rounded-sm">
+                <button className="lg:w-[165px] w-[120px] h-11 bg-[#Db4444] text-white rounded-sm">
                   Buy Now
                 </button>
                 <div className="size-10 rounded-sm border flex items-center justify-center">
@@ -169,7 +166,7 @@ if (!product) return null; // This prevents the "null" error
               </div>
             </div>
 
-            <div className="w-[401px] h-[180px] rounded-sm border flex flex-col items-center justify-center space-y-5 ">
+            <div className="lg:w-[401px] w-full h-[180px] rounded-sm border flex flex-col items-center justify-center space-y-5 ">
               <div className="flex gap-5 border-b p-6">
                 <img src={Delivery_Icon} alt="" />
                 <div className="w-[332px] ">
