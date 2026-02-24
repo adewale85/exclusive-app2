@@ -4,7 +4,7 @@ import Myproducts from "../../Layout/Myproducts";
 
 import LeftArrow from "../../../assets/LeftArrow.svg";
 import RightArrow from "../../../assets/RightArrow.svg";
-import WishlistNav from "../../Layout/WishlistNav";
+
 
 const FlashShare = () => {
   const { days, hours, minutes, seconds } =
