@@ -13,12 +13,11 @@ function SidebarCategoryDetails() {
     "furniture",
     "groceries",
     "home-decoration",
-    "kitchen-accessories",
+    "women-shoes",
     "laptops",
     "mens-shirts",
     "mens-shoes",
-    "mens-watches",
-    "mobile-accessories",
+    
   ];
 
   // const [data, setData] = useState <categories|null> (null)
@@ -56,12 +55,13 @@ function SidebarCategoryDetails() {
     {isOpen ? < IoMdClose className="size-8 bg-white "/> : <MdOutlineFilterList className="size-8 bg-white "/>}
   </button>
 
-  <div className={`lg:border-r-[0.5px] ${isOpen ? "block" : "hidden"} lg:block overflow-y-auto lg:bg-[#F5F5f5] bg-[#F5F5f5] z-50 lg:p-4 p-5 lg:gap-12 gap-2`}>
+
+    <div className={`lg:border-r-[0.5px]  ${isOpen ? "block" : "hidden"} lg:block overflow-y-auto lg:bg-[#ffffff] bg-[#F5F5f5] z-50 lg:p-4 p-5 lg:gap-12 gap-2`}>
     <ul className="space-y-3 ">
       {categories.map((category, index) => (
         <li
           key={category}
-          className="flex items-center justify-between font-normal font-poppins text-[1rem] leading-6 w-[197px]"
+          className="flex items-center pr-15 gap-5 justify-between font-normal font-poppins text-[1rem] leading-6 w-[197px]"
         >
           {category}
           {index <= 1 && (
@@ -71,7 +71,8 @@ function SidebarCategoryDetails() {
       ))}
     </ul>
   </div>
-</div>
+  </div>
+
     
 
 

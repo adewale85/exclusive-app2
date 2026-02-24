@@ -19,8 +19,8 @@ function AllProductDetails() {
   const [product, setProduct] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
-  const handleToggleWishList = (product:any)=>{
+  const [quantity, setQuantity] = useState (1)
+    const handleToggleWishList = (product:any)=>{
     addToWishList(product)
     toast.success(`${product.title} added to wishlist`)
   }
@@ -29,6 +29,16 @@ function AllProductDetails() {
     if (product){
       addToCart(product)
       toast.success(`${product.title} added to cart!`)
+    }
+  }
+ 
+  const handleIncrease = () => {
+    setQuantity(prev=>prev+1)
+  }
+
+  const handleDecrease = () => {
+    if(quantity > 1) {
+    setQuantity (prev => prev - 1)
     }
   }
 
@@ -164,15 +174,15 @@ function AllProductDetails() {
 
               <div className="flex gap-5">
                 <div className="flex">
-                  <div className="w-10 h-11 border flex items-center justify-center font-poppins font-medium text-[20px] leading-7 rounded-l-sm">
+                  <button onClick={handleDecrease} className="w-10 h-11 border flex items-center justify-center font-poppins font-medium text-[20px] leading-7 rounded-l-sm">
                     -
-                  </div>
+                  </button>
                   <div className="w-20 h-11 border flex items-center justify-center font-poppins font-medium text-[20px] leading-7">
-                    2
+                    {quantity}
                   </div>
-                  <div className="w-10 h-11  flex items-center justify-center font-poppins font-medium text-[20px] text-white leading-7 bg-[#Db4444] rounded-r-sm">
+                  <button onClick={handleIncrease} className="w-10 h-11  flex items-center justify-center font-poppins font-medium text-[20px] text-white leading-7 bg-[#Db4444] rounded-r-sm">
                     +
-                  </div>
+                  </button>
                 </div>
 
                 <div className="flex gap-5">

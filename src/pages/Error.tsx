@@ -1,15 +1,18 @@
+import { Link } from "react-router-dom";
 
 
 function Error() {
   return (
     <main className="Wrapper lg:px-0 px-4">
       
-      <div className="Wrapper">
-        <div className=" flex gap-3">
-          <p className="font-poppins font-normal text-sm leading-5 text-[#818181]">
-            Home /
-          </p>
-          <p className="font-poppins font-normal text-sm leading-5">About </p>
+      <div className="Wrapper py-12">
+        <div className='lg:px-0 px-12 flex gap-3'>
+            <Link to={"/"}>
+            <p className='font-poppins font-normal text-sm leading-5 text-[#818181]'>Home / </p>
+            </Link>
+            <Link to={"/Error"}>
+             <p className='font-poppins font-normal text-sm leading-5'>404 Error </p>
+            </Link>
         </div>
         <div className="w-full lg:h-[479px] h-[350px] flex flex-col items-center justify-center space-y-5
          ">

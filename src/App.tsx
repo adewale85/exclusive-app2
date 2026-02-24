@@ -15,7 +15,7 @@ import Error from './pages/Error'
 import AllProductDetails from './pages/AllProductDetails'
 import Navbar from './Component/Layout/Navbar'
 import Footer from './Component/Layout/Footer'
-import EveryProduct from './Component/EveryProduct'
+import EveryProduct from './Component/Products'
 
 
 

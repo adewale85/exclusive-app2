@@ -1,6 +1,7 @@
 
 
 
+import { Link } from "react-router-dom"
 import SlideImage from "../assets/Side Image (1).svg"
 import { AboutInfopropsData } from '../constants/AboutInfo'
 import { NewArrivalData } from '../constants/Arrival'
@@ -8,11 +9,15 @@ import { PeopleSectionData } from '../constants/People\'sSection'
 
 function About() {
   return (
-    <main className='Wrapper px-4 lg:px-0'>
+    <main className='Wrapper py-12 px-4 lg:px-0'>
       <div className=''>
-          <div className='flex gap-3 py-12'>
-            <p className='font-poppins font-normal text-sm leading-5'>Home / </p>
-            <p className='font-poppins font-normal text-sm leading-5'>About </p>
+          <div className='lg:px-0 px-12 flex gap-3'>
+            <Link to={"/"}>
+            <p className='font-poppins font-normal text-sm leading-5 text-[#818181]'>Home / </p>
+            </Link>
+            <Link to={"/about"}>
+             <p className='font-poppins font-normal text-sm leading-5'>About </p>
+            </Link>
         </div>
        <div className='flex flex-col-reverse lg:flex-row items-center gap-6'>
          <div className='w-full lg:w-[525px]'>

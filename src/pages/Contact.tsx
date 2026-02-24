@@ -12,8 +12,12 @@ function Contact() {
     <div>
         <section className='Wrapper py-12'>
         <div className='lg:px-0 px-12 flex gap-3'>
+            <Link to={"/"}>
             <p className='font-poppins font-normal text-sm leading-5 text-[#818181]'>Home / </p>
-            <p className='font-poppins font-normal text-sm leading-5'>About </p>
+            </Link>
+            <Link to={"/about"}>
+             <p className='font-poppins font-normal text-sm leading-5'>Contact </p>
+            </Link>
         </div>
 
     <div className='flex lg:flex-row flex-col gap-8 items-center justify-center'>
