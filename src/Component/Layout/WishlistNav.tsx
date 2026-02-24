@@ -2,8 +2,17 @@
 import { BsPerson } from 'react-icons/bs'
 import { IoMdHeartEmpty } from 'react-icons/io'
 import { IoCartOutline, IoSearch } from 'react-icons/io5'
+import { NavLink } from 'react-router-dom'
 
 function WishlistNav() {
+
+const WishLinkNav = [
+  {id:1 , label: "Home", path:"/"},
+  {id:1 , label: "Contact", path:"contact"},
+  {id:1 , label: "About", path:"about"},
+  {id:1 , label: "signup", path:"Sign-Up"}
+]
+
   return (
     <div>
          <div>
@@ -15,10 +24,14 @@ function WishlistNav() {
           </div>
 
           <ul className='flex gap-12 list-none'>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Contact</a></li>
-            <li><a href="/">About</a></li>
-            <li><a href="/signup">Sign-Up</a></li>
+            {WishLinkNav.map(({id, label, path})=>(
+              <li key={id}>
+                <NavLink to={path}>
+                  {label}
+                </NavLink>
+
+              </li>
+            ))}
           </ul>
 
 

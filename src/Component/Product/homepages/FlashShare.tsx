@@ -4,6 +4,7 @@ import Myproducts from "../../Layout/Myproducts";
 
 import LeftArrow from "../../../assets/LeftArrow.svg";
 import RightArrow from "../../../assets/RightArrow.svg";
+import WishlistNav from "../../Layout/WishlistNav";
 
 const FlashShare = () => {
   const { days, hours, minutes, seconds } =
@@ -109,7 +110,7 @@ const FlashShare = () => {
 
       {/* View All */}
       <div className="flex items-center justify-center py-10 lg::py-20">
-        <Link to="/">
+        <Link to="/EveryProduct">
           <button className="w-[234px] h-14 bg-primary rounded-sm text-white text-[16px] font-medium">
             View All Products
           </button>
@@ -118,6 +119,7 @@ const FlashShare = () => {
 
       {/* Divider */}
       <div className="border-b-[0.5px] opacity-30"></div>
+      
     </div>
   );
 };

@@ -1,129 +1,148 @@
-import Monitor from "../../assets/Monitor.svg"
-import Gamepad from "../../assets/Gamepad.svg"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useCart } from "../../CartContext";
 
 function Cart() {
+  const { cart, updateQuantity, removeFromCart } = useCart();
+
+  // If cart is empty
+  if (cart.length === 0) {
+    return (
+      <div className="Wrapper px-4 py-20 text-center">
+        <h2 className="text-2xl font-semibold">Your Cart is Empty 🛒</h2>
+        <Link to="/">
+          <button className="mt-6 px-6 py-3 bg-[#Db4444] text-white rounded-md">
+            Go Shopping
+          </button>
+        </Link>
+      </div>
+    );
+  }
+
   return (
-    <div className='Wrapper lg:px-0 px-4 py-10'>
+    <div className="Wrapper lg:px-0 px-4 py-10">
       
-     
-      <div className='hidden lg:flex flex-row justify-between bg-white shadow-sm rounded-md p-10 gap-4'>
+      {/* DESKTOP VERSION */}
+      <div className="hidden lg:flex flex-col bg-white shadow-sm rounded-md p-10 gap-6">
         
-        {/* Column 1: All Products */}
-        <div className='flex flex-col gap-10 flex-2'>
-          <div className='font-poppins font-medium text-[18px]  pb-4'>Product</div>
-          <div className='flex gap-3 items-center h-12'>
-            <img src={Monitor} alt="Monitor" className='w-12 h-10 object-contain' />
-            <span className='font-poppins font-normal text-[16px]'>LCD Monitor</span>
-          </div>
-          <div className='flex gap-3 items-center h-12'>
-            <img src={Gamepad} alt="Gamepad" className='w-12 h-10 object-contain' />
-            <span className='font-poppins font-normal text-[16px]'>Havit Gamepad</span>
-          </div>
+        {/* Header */}
+        <div className="flex justify-between font-medium text-[18px] pb-4 border-b">
+          <span className="w-[300px]">Product</span>
+          <span className="w-[120px] text-center">Price</span>
+          <span className="w-[120px] text-center">Quantity</span>
+          <span className="w-[120px] text-right">Subtotal</span>
+          <span className="w-[120px] text-right">Delete</span>
         </div>
 
-        {/* Column 2: All Prices */}
-        <div className='flex flex-col gap-10 flex-1 text-center'>
-          <div className='font-poppins font-medium text-[18px]  pb-4'>Price</div>
-          <div className='h-12 flex items-center justify-center'>$650</div>
-          <div className='h-12 flex items-center justify-center'>$650</div>
-        </div>
+        {/* Cart Items */}
+        {cart.map((product) => (
+          <div
+            key={product.id}
+            className="flex justify-between items-center py-6 border-b"
+          >
+            {/* Product */}
+            <div className="flex items-center gap-3 w-[300px]">
+              <img
+                src={product.thumbnail}
+                alt={product.title}
+                className="w-12 h-10 object-contain"
+              />
+              <span className="text-[16px]">{product.title}</span>
+            </div>
 
-        {/* Column 3: All Quantities */}
-        <div className='flex flex-col gap-10 flex-1 items-center'>
-          <div className='font-poppins font-medium text-[18px]  pb-4 w-full text-center'>Quantity</div>
-          <div className='h-12 flex items-center'>
-            <select className='w-16 h-11 border border-gray-300 rounded-md text-center'><option>01</option></select>
-          </div>
-          <div className='h-12 flex items-center'>
-            <select className='w-16 h-11 border border-gray-300 rounded-md text-center'><option>01</option></select>
-          </div>
-        </div>
+            {/* Price */}
+            <div className="w-[120px] text-center">
+              ${product.price}
+            </div>
 
-        {/* Column 4: All Subtotals */}
-        <div className='flex flex-col gap-10 flex-1 text-right'>
-          <div className='font-poppins font-medium text-[18px]  pb-4'>Subtotal</div>
-          <div className='h-12 flex items-center justify-end'>$650</div>
-          <div className='h-12 flex items-center justify-end'>$1100</div>
-        </div>
-      </div>
+            {/* Quantity */}
+            <div className="w-[120px] text-center">
+              <select
+                value={product.quantity}
+                onChange={(e) =>
+                  updateQuantity(product.id, Number(e.target.value))
+                }
+                className="w-16 h-11 border border-gray-300 rounded-md text-center"
+              >
+                <option value="1">01</option>
+                <option value="2">02</option>
+                <option value="3">03</option>
+                <option value="4">04</option>
+              </select>
+            </div>
 
-      
-      <div className='lg:hidden flex flex-col gap-6'>
-        
-        {/* ITEM 1 BLOCK */}
-        <div className='bg-white p-6 shadow-sm rounded-md space-y-4 border border-gray-100'>
-          <div className='flex justify-between items-center  pb-2'>
-            <span className='text-black'>Product</span>
-            <div className='flex items-center gap-2'>
-               <img src={Monitor} alt="Monitor" className='w-8 h-8 object-contain' />
-               <span>LCD Monitor</span>
+            {/* Subtotal */}
+            <div className="w-[120px] text-right">
+              ${product.price * product.quantity}
+            </div>
+            <div className="w-[120px] text-right">
+              <button
+              onClick={() => removeFromCart(product.id)}
+              className="px-3 .py-2 rounded-md mt-3 bg-red-500 text-white py-2 "
+            >
+              Remove Item
+            </button>
             </div>
           </div>
-          <div className='flex justify-between items-center  pb-2'>
-            <span className='text-black'>Price</span>
-            <span>$650</span>
-          </div>
-          <div className='flex justify-between items-center  pb-2'>
-            <span className='text-black'>Quantity</span>
-            <select className='border rounded p-1'><option>01</option></select>
-          </div>
-          <div className='flex justify-between items-center'>
-            <span className='text-black'>Subtotal</span>
-            <span className='font-medium'>$650</span>
-          </div>
-        </div>
+        ))}
+      </div>
 
-        {/* ITEM 2 BLOCK */}
-        <div className='bg-white p-6 shadow-sm rounded-md space-y-4 border border-gray-100'>
-          <div className='flex justify-between items-center  pb-2'>
-            <span className='text-black'>Product</span>
-            <div className='flex items-center gap-2'>
-               <img src={Gamepad} alt="Gamepad" className='w-8 h-8 object-contain' />
-               <span>Havit Gamepad</span>
+      {/* MOBILE VERSION */}
+      <div className="lg:hidden flex flex-col gap-6">
+        {cart.map((product) => (
+          <div
+            key={product.id}
+            className="bg-white p-6 shadow-sm rounded-md border border-gray-100 space-y-4"
+          >
+            <div className="flex justify-between items-center">
+              <span className="font-medium">Product</span>
+              <div className="flex items-center gap-3">
+                <img
+                  src={product.thumbnail}
+                  alt={product.title}
+                  className="w-10 h-10 object-contain"
+                />
+                <span className="text-sm font-medium">
+                  {product.title}
+                </span>
+              </div>
             </div>
-          </div>
-          <div className='flex justify-between items-center  pb-2'>
-            <span className='text-black'>Price</span>
-            <span>$650</span>
-          </div>
-          <div className='flex justify-between items-center  pb-2'>
-            <span className='text-black'>Quantity</span>
-            <select className='border rounded p-1'><option>01</option></select>
-          </div>
-          <div className='flex justify-between items-center'>
-            <span className='text-black'>Subtotal</span>
-            <span className='font-medium'>$1100</span>
-          </div>
-        </div>
 
+            <div className="flex justify-between">
+              <span>Price</span>
+              <span>${product.price}</span>
+            </div>
+
+            <div className="flex justify-between items-center">
+              <span>Quantity</span>
+              <select
+                value={product.quantity}
+                onChange={(e) =>
+                  updateQuantity(product.id, Number(e.target.value))
+                }
+                className="border rounded px-2 py-1"
+              >
+                <option value="1">01</option>
+                <option value="2">02</option>
+                <option value="3">03</option>
+              </select>
+            </div>
+
+            <div className="flex justify-between border-t pt-3 font-semibold">
+              <span>Subtotal</span>
+              <span>${product.price * product.quantity}</span>
+            </div>
+
+            <button
+              onClick={() => removeFromCart(product.id)}
+              className="w-full mt-3 bg-red-500 text-white py-2 rounded"
+            >
+              Remove Item
+            </button>
+          </div>
+        ))}
       </div>
-
-      {/* FOOTER SECTIONS (Kept original buttons and coupon layout) */}
-      <div className='flex flex-col md:flex-row items-center justify-between py-12 gap-4'>
-        <button className='md:w-[218px] w-full h-14 rounded-sm border font-medium'>Return To Shop</button>
-        <button className='md:w-[218px] w-full h-14 rounded-sm border font-medium'>Update Cart</button>
-      </div>
-
-      <div className='flex flex-col lg:flex-row justify-between gap-10 mb-24'>
-        <div className='flex flex-col md:flex-row gap-4'>
-          <input type="text" placeholder='Coupon Code' className='lg:w-[300px] w-full h-14 border rounded-md p-4 outline-none' />
-          <button className='lg:w-[218px] w-full h-14 rounded-sm text-white bg-[#Db4444]'>Apply Coupon</button>
-        </div>
-
-        <div className='lg:w-[470px] w-full border-[1.5px] rounded-md p-8 space-y-6'>
-          <p className='text-[20px] font-medium'>Cart Total</p>
-          <div className='flex justify-between border-b pb-4'><span>Subtotal:</span><span>$1750</span></div>
-          <div className='flex justify-between border-b pb-4'><span>Shipping:</span><span>Free</span></div>
-          <div className='flex justify-between font-bold text-lg'><span>Total:</span><span>$1750</span></div>
-          <Link to="/checkout">
-          <button className='w-full h-14 rounded-sm text-white bg-[#Db4444] font-medium'>Proceed to checkout</button> 
-          </Link>
-        </div>
-      </div>
-
     </div>
-  )
+  );
 }
 
-export default Cart
+export default Cart;

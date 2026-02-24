@@ -1,11 +1,9 @@
 
-import Navbar from "../Component/Layout/Navbar";
-import Footer from "../Component/Layout/Footer";
 
 function Error() {
   return (
-    <main>
-      <Navbar />
+    <main className="Wrapper lg:px-0 px-4">
+      
       <div className="Wrapper">
         <div className=" flex gap-3">
           <p className="font-poppins font-normal text-sm leading-5 text-[#818181]">
@@ -13,9 +11,9 @@ function Error() {
           </p>
           <p className="font-poppins font-normal text-sm leading-5">About </p>
         </div>
-        <div className="w-full h-[479px] flex flex-col items-center justify-center
+        <div className="w-full lg:h-[479px] h-[350px] flex flex-col items-center justify-center space-y-5
          ">
-          <h1 className=" items-center justify-center font-inter font-medium text-[115px] leading-28 tracking-[4%] text-center">
+          <h1 className=" items-center justify-center font-inter font-medium lg:text-9xl text-6xl leading-28 tracking-[4%] text-center">
             404 Not Found
           </h1>
           <p className="font-poppins font-normal text-base leading-6 text-center ">
@@ -23,9 +21,7 @@ function Error() {
           </p>
         </div>
       </div>
-      <div>
-        <Footer />
-      </div>
+      
     </main>
   );
 }

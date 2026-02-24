@@ -10,6 +10,9 @@ export const footerSections = [
   {
     title: "Account",
     items: ["My Account", "Login / Register", "Cart", "Wishlist", "Shop"],
+    // items: [
+    //   {"My Account"}, {"Login / Register",} {"Cart",} {"Wishlist",} {"Shop"}
+    // ]
   },
   {
     title: "Quick Link",

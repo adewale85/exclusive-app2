@@ -1,7 +1,7 @@
 
 import phoneIcon from "../assets/icons-phone.svg"
 import MailIcon from "../assets/icons-mail.svg"
-import Footer from '../Component/Layout/Footer'
+
 
 import { Link } from 'react-router-dom'
 

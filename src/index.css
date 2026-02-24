@@ -10,7 +10,6 @@
 
 .Wrapper {
   @apply w-full max-w-[1170px] mx-auto ;
-
 }
 
 @theme {

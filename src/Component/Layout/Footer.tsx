@@ -7,20 +7,21 @@ import Twitter_Icon from "../../assets/Icon-Twitter.svg"
 import Facebook_Icon  from "../../assets/Icon-Facebook.svg"
 import Linkedin_Icon from "../../assets/Icon-Linkedin.svg"
 import Instagram_Icon from "../../assets/icon-instagram.svg"
+import { Link } from "react-router-dom";
 
 
 
 function Footer() {
   return (
     <div className="bg-black text-white py-12">
-      <div className="Wrapper flex md:flex-row flex-col justify-between items-center">
+      <div className="Wrapper flex lg:flex-row flex-col justify-between items-start lg:p-0 pl-4">
 
         {/* === UNIQUE SECTION === */}
         <div className="space-y-5">
         
          <ul>
           <li className=" font-inter font-bold text-2xl list-none">
-            <a href="/"> Exclusive</a>
+            <Link to={"/"}>Exclusive</Link>
           </li>
          </ul>
           
@@ -44,10 +45,13 @@ function Footer() {
           <div key={index} className="space-y-5 md:py-0 py-8 ">
             <h2 className="font-poppins font-medium text-[20px]">{title}</h2>
 
-            {items.map((item, i) => (
-              <p key={i} className=" font-normal text-[16px] leading-6 w-[175px] ">
+            {items.map((item , i ) => (
+              <Link to={item}>
+                <p key={i} className=" font-normal text-[16px] leading-6 w-[175px] ">
                 {item}
+               
               </p>
+              </Link>
             ))}
           </div>
         ))}

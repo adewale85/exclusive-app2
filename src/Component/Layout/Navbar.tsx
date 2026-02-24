@@ -1,12 +1,15 @@
 import { useState } from "react"; // 1. Import useState
 import { IoMdHeartEmpty, IoMdMenu, IoMdClose } from "react-icons/io"; // Added Menu icons
 import NavInput from "./NavInput";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import DropNav from "./DropNav";
 import SidebarCategoryDetails from "./SidebarCategory";
+import { useCart } from "../../CartContext";
+
 
 function Navbar() {
+  const { cartCount } = useCart();
   const isloggedIn = false;
   const [isOpen, setIsOpen] = useState(false); // 2. State for mobile menu
 
@@ -23,8 +26,9 @@ function Navbar() {
         <div className="flex items-center justify-between">
           
          
-          <div className="lg:hidden block">
+          <div className="lg:hidden block ">
              <SidebarCategoryDetails />
+             
           </div>
 
           <NavLink to="/" className="font-inter font-bold text-[1.5rem] text-black">
@@ -47,8 +51,23 @@ function Navbar() {
             <div className="hidden lg:block"> <NavInput /> </div>
             
             <ul className="flex gap-3 lg:gap-5 items-center">
-              <li><a href="/wishlist"><IoMdHeartEmpty className="w-7 h-7" /></a></li>
-              <li><a href="/cart"><IoCartOutline className="w-7 h-7" /></a></li>
+              <Link to={"/wishlist"}>
+              <IoMdHeartEmpty className="w-7 h-7" />
+              </Link>
+              
+              <Link to={"/cart"}>
+              <IoCartOutline className="w-7 h-7 relative" />
+              {cartCount > 0 && (
+                <span className="absolute top-0  flex items-center justify-center bg-red-500 text-white text-[10px] font-bold 
+                       rounded-full h-5 w-5 border-2 border-white translate-y--2 translate-x-4">
+                        {cartCount}
+                </span>
+              )}
+              </Link>
+
+             
+
+             
               {isloggedIn && <li><DropNav /></li>}
               
               {/* 3. Hamburger Button - Only visible on Mobile */}

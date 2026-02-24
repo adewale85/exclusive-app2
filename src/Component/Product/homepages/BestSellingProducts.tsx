@@ -6,12 +6,29 @@ import halfIcon from "../../../assets/star-half-filled.svg"
 import emptyIcon from "../../../assets/EmptyStar.svg"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../../../CartContext";
+import { toast } from "sonner";
+import { useWishList } from "../../../WishListContext";
+
 
 const BestSellingProducts = () => {
-
+const {addToWishList} = useWishList()
+const {addToCart} = useCart()
 const [data, setData] = useState <ProductDetails|null>(null)
 const [loading, setLoading] = useState (false)
 const [error, setError] = useState ("")
+
+const handleToggleWishList = (product: any) => {
+  addToWishList (product)
+  toast.success (`${product.title} added to wishlist`)
+}
+
+const handleAddCart = (product:any) => {
+  if(product){
+    addToCart(product)
+    toast.success(`${product.title} added to cart!`)
+  }
+}
 
 useEffect(()=>{
   const sellingProduct = async()=>{
@@ -55,7 +72,9 @@ useEffect(()=>{
                 
 
                 <div className="flex flex-col space-y-2">
-                    <img src={Heart} alt="" className="w-8 h-8" />
+                   <button onClick={()=>handleToggleWishList(BestSellingProductData)}>
+                     <img src={Heart} alt="" className="w-8 h-8" />
+                   </button>
                     <img src={Eye} alt="" className="w-8 h-8" />
                   </div>
                 </div>
@@ -68,10 +87,12 @@ useEffect(()=>{
 
              <div className="">
                {BestSellingProductData.description && (
-                <p className="absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center  
+                <button onClick={()=>handleAddCart(BestSellingProductData)}>
+                  <p className="absolute w-full h-10 flex bottom-0 rounded-br-sm rounded-bl-sm items-center justify-center  
                  text-white bg-[black] ">
                  <p> Add To Cart</p>
                 </p>
+                </button>
                )}
             </div>
             

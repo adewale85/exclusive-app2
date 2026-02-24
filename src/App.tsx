@@ -15,19 +15,24 @@ import Error from './pages/Error'
 import AllProductDetails from './pages/AllProductDetails'
 import Navbar from './Component/Layout/Navbar'
 import Footer from './Component/Layout/Footer'
+import EveryProduct from './Component/EveryProduct'
+
+
 
 
 
 function App() {
 return (
+  
    <main>
+   
     <Navbar/>
       <Routes>
         <Route path="/" element={<Layout />} >
           <Route index element={<Homepages />} />
         
          <Route path="signup" element={<SignUp />} />
-         <Route path="log in" element={<Login/>} />
+         <Route path="login" element={<Login/>} />
         
         </Route>
          
@@ -39,10 +44,12 @@ return (
          <Route path="contact" element={<Contact/>} />
          <Route path="error" element={<Error/>} />
          <Route path="/product/:id" element={<AllProductDetails/>} />
+         <Route path='everyProduct' element={<EveryProduct/>} />
          </Routes>
          <Footer/>
 
          </main>
+         
           )
 }
 

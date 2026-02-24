@@ -1,18 +1,11 @@
-
-
-     
-   
-
-       
-
-export interface Exploreprops {
-  products: ExploreOurProductsData[]
+export interface Everyprops {
+  products: EveryProductsData[]
   total: number
   skip: number
   limit: number
 }
 
-export interface ExploreOurProductsData {
+export interface EveryProductsData {
   id: number
   title: string
   description: string
@@ -57,4 +50,3 @@ export interface Meta {
   barcode: string
   qrCode: string
 }
-

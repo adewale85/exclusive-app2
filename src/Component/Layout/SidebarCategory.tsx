@@ -56,17 +56,16 @@ function SidebarCategoryDetails() {
     {isOpen ? < IoMdClose className="size-8 bg-white "/> : <MdOutlineFilterList className="size-8 bg-white "/>}
   </button>
 
-  <div className={`border-r-[0.5px] ${isOpen ? "block" : "hidden"} lg:block overflow-y-auto lg:bg-white bg-white z-50`}>
-    <ul className="space-y-3">
+  <div className={`lg:border-r-[0.5px] ${isOpen ? "block" : "hidden"} lg:block overflow-y-auto lg:bg-[#F5F5f5] bg-[#F5F5f5] z-50 lg:p-4 p-5 lg:gap-12 gap-2`}>
+    <ul className="space-y-3 ">
       {categories.map((category, index) => (
         <li
           key={category}
           className="flex items-center justify-between font-normal font-poppins text-[1rem] leading-6 w-[197px]"
         >
           {category}
-          {/* Index check for arrows on specific items */}
           {index <= 1 && (
-            <MdOutlineKeyboardArrowRight className="w-6 h-6" />
+            <MdOutlineKeyboardArrowRight className="w-6 h-6"/>
           )}
         </li>
       ))}
