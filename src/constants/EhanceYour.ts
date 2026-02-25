@@ -1,13 +1,13 @@
 
 
-export interface EhanceProps{
+export interface EhanceItem{
   id: number;
   title: number;
   subTitle:  string;
   
 }
 
-export const EhanceYourMusicExperienceData:EhanceProps [] = [
+export const EhanceYourMusicExperienceData:EhanceItem [] = [
 
  {
     id: 1,

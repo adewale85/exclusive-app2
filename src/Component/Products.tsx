@@ -4,7 +4,7 @@ import Eye from "../assets/Fill Eye.svg";
 import StarIcon from "../assets/Star.svg";
 import halfIcon from "../assets/star-half-filled.svg";
 import emptyIcon from "../assets/EmptyStar.svg";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../CartContext";
 import { useWishList } from "../WishListContext";
