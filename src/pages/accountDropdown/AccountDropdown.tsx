@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Homepages from '../../Component/Product/homepages'
 import DropNav from '../../Component/Layout/DropNav'
 import Footer from '../../Component/Layout/Footer'
