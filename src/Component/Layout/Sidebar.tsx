@@ -13,7 +13,7 @@ function Sidebar() {
         </div>
 
         <div className="relative">
-          <div className="flex md:flex-row flex-col relative md:w-[892px] w-full h-full bg-black justify-between">
+          <div className="flex md:flex-row flex-col relative md:w-[892px] w-full h-[358px] bg-black justify-between">
             <div className="md:p-12 p-6 space-y-10 ">
               <div className="flex gap-8 items-center">
                 <img
@@ -33,7 +33,7 @@ function Sidebar() {
               </div>
 
               <div>
-                <p className="font-poppins font-medium text-base leading-6 text-[#FAFAFA] flex gap-5">
+                <p className="font-poppins font-medium text-base leading-6 text-[#FAFAFA] flex items-center gap-5">
                   Shop Now
                   <span>
                     <img src={Right_Arrow} alt="" />

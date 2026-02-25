@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { HeroFrameData } from '../../constants/Heroframe'
 
 function Banner() {
@@ -19,7 +19,7 @@ function Banner() {
         <div className='lg:flex-row flex-col lg:w-[496px] w-full h-[312px] object-cover rounded-lg  '>
             <img src={HeroFrameData[currentIndex].image} alt={`Slide ${currentIndex + 1}`} className='object-cover size-full'/>
         </div>
-        <div className='flex gap-5 items-center justify-center'>
+        <div className='flex gap-5 items-center mb-3 justify-center'>
 
             {HeroFrameData.map((_, index)=>(
                 <div key={index} 

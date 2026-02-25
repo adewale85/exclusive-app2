@@ -1,4 +1,9 @@
-const OrderSucessModal = ({ open, onChange }) => {
+interface OrderSuccessModalProps {
+  open: boolean;
+  onChange: (value: boolean) => void;
+}
+
+const OrderSucessModal = ({ open, onChange }: OrderSuccessModalProps) => {
   if (!open) return null
 
   return (

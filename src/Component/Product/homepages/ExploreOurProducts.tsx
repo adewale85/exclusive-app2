@@ -214,14 +214,6 @@ useEffect (()=>{
     </div>
 
       
-     
-
-      
-
-      
-
-      
-
       <div className="flex items-center justify-center ">
         <Link to="/EveryProduct">
         <button  className="w-[234px] h-14 bg-primary rounded-sm text-white text-[16px] font-medium leading-6 font-poppins">View All Products</button>

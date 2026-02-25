@@ -41,7 +41,7 @@ useEffect(()=>{
          const data = await response.json()
         setData(data)
         console.log(data);
-    } catch (error:unknown){
+    } catch (error:any){
       setError (error?.message)
       console.log(error);
       

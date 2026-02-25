@@ -6,7 +6,14 @@ import Cancellation from "../../assets/icon-cancel.svg";
 import Review from "../../assets/Review.svg";
 import Logout from "../../assets/Icon-logout.svg";
 
+interface DropdownItemProps {
+  text: string;
+}
+
 function DropNav() {
+
+
+
   const [open, setOpen] = useState(false);
 
   return (
@@ -55,7 +62,9 @@ function DropNav() {
   );
 }
 
-function DropdownItem({ text }) {
+
+
+function DropdownItem({ text }:DropdownItemProps) {
   return <button className="  hover:bg-black text-sm">{text}</button>;
 }
 

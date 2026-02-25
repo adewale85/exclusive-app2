@@ -12,8 +12,8 @@ const FlashShare = () => {
 
     const Dots = () => (
   <div className="flex flex-col gap-2 lg:gap-3 shrink-0">
-    <div className="md:size-[5px] size-[3px] bg-red-500 rounded-full"></div>
-    <div className="md:size-[5px] size-[3px] bg-red-500 rounded-full"></div>
+    <div className="lg:size-[5px] size-[3px] bg-red-500 rounded-full"></div>
+    <div className="lg:size-[5px] size-[3px] bg-red-500 rounded-full"></div>
   </div>
 );
 
@@ -40,43 +40,51 @@ const FlashShare = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 w-full lg:w-auto">
           
           {/* Countdown */}
-          <div className="flex items-center  gap-4 lg:gap-6 overflow-x-auto lg:overflow-visible">
+          <div className="flex items-center space-x-6 gap-4 lg:gap-12 overflow-x-auto lg:overflow-visible">
             
             {/* Days */}
             <div className="w-[46px] text-center shrink-0">
               <p className="font-medium lg:text-[1rem] text-[12px]">
                 Days
               </p>
-              <p className="font-bold lg:text-[2rem] text-[1rem]">
+              <div className="flex gap-5 items-center justify-center">
+                <p className="font-bold lg:text-[2rem] text-[1rem]">
                 {String(days).padStart(2, "0")}
               </p>
+               <Dots />
+              </div>
             </div>
 
-            <Dots />
+           
 
             {/* Hours */}
             <div className="w-[46px] text-center shrink-0">
               <p className="font-medium lg:text-[1rem] text-[12px]">
                 Hours
               </p>
-              <p className="font-bold lg:text-[2rem] text-[1rem]">
+             <div className="flex gap-5 items-center justify-center">
+               <p className="font-bold lg:text-[2rem] text-[1rem]">
                 {String(hours).padStart(2, "0")}
               </p>
+            <Dots />
+             </div>
             </div>
 
-            <Dots />
 
             {/* Minutes */}
             <div className="w-[46px] text-center shrink-0">
               <p className="font-medium lg:text-[1rem] text-[12px]">
                 Minutes
               </p>
-              <p className="font-bold lg:text-[2rem] text-[1rem]">
+              <div className="flex gap-5 items-center justify-center">
+                <p className="font-bold lg:text-[2rem] text-[1rem]">
                 {String(minutes).padStart(2, "0")}
               </p>
+              <Dots /> 
+              </div>
             </div>
 
-            <Dots />
+            
 
             {/* Seconds */}
             <div className="w-[46px] text-center shrink-0">

@@ -3,6 +3,7 @@ import Woman_wearing from "../../../assets/woman_wearing.svg";
 import Bt_Speaker from "../../../assets/Bt_Speaker.svg";
 import Perfume from "../../../assets/Perfume.svg";
 import { NewArrivalData } from "../../../constants/Arrival";
+import { Link } from "react-router-dom";
 
 function NewArrival() {
   return (
@@ -24,7 +25,7 @@ function NewArrival() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-auto">
         
         {/* Left Big Card (PlayStation) */}
-        <div className="relative bg-black rounded-xl overflow-hidden min-h-[400px] md:h-[600px] flex items-end justify-center">
+        <div className="relative bg-black rounded-xl overflow-hidden min-h-[400px] lg:h-[700px] w-[570px] flex items-end justify-center">
           <img 
             src={Playstation} 
             alt="PS5" 
@@ -35,9 +36,11 @@ function NewArrival() {
             <p className="text-xs md:text-sm mt-2 max-w-[250px]">
               Black and White version of the PS5 coming out on sale.
             </p>
+            <Link to={"/EveryProduct"}>
             <button className="mt-4 font-medium border-b border-gray-400 hover:text-gray-300 transition-colors">
               Shop Now
             </button>
+            </Link>
           </div>
         </div>
 
@@ -58,9 +61,11 @@ function NewArrival() {
               <p className="text-xs md:text-sm mt-2 max-w-[200px]">
                 Featured woman collections that give you another vibe.
               </p>
+              <Link to={"/EveryProduct"}>
               <button className="mt-3 font-medium border-b border-gray-400">
                 Shop Now
               </button>
+              </Link>
             </div>
           </div>
 
@@ -72,7 +77,9 @@ function NewArrival() {
               <div className="absolute left-6 bottom-6 text-white z-10">
                 <h2 className="text-lg md:text-xl font-semibold">Speakers</h2>
                 <p className="text-xs mt-1">Amazon wireless speakers</p>
+               <Link to={"/EveryProduct"}>
                 <button className="mt-2 text-sm border-b border-gray-400">Shop Now</button>
+               </Link>
               </div>
             </div>
 
@@ -82,7 +89,9 @@ function NewArrival() {
               <div className="absolute left-6 bottom-6 text-white z-10">
                 <h2 className="text-lg md:text-xl font-semibold">Perfume</h2>
                 <p className="text-xs mt-1">GUCCI INTENSE OUD EDP</p>
+                <Link to={"/EveryProduct"}>
                 <button className="mt-2 text-sm border-b border-gray-400">Shop Now</button>
+                </Link>
               </div>
             </div>
           </div>

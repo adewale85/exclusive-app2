@@ -17,7 +17,6 @@ function SidebarCategoryDetails() {
     "laptops",
     "mens-shirts",
     "mens-shoes",
-    
   ];
 
   // const [data, setData] = useState <categories|null> (null)

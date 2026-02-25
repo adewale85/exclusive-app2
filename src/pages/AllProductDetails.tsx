@@ -85,7 +85,7 @@ function AllProductDetails() {
 
         <div className="flex lg:flex-row flex-col gap-12">
           <div className="space-y-4 ">
-            {product.images?.slice(0, 4).map((img, index) => (
+            {product.images?.slice(0, 4).map((img:string, index:number) => (
               <div
                 key={index}
                 className="lg:w-[170px] w-40 lg:h-[138px] h-40 bg-[#f5F5F5] rounded-sm flex items-center justify-center"

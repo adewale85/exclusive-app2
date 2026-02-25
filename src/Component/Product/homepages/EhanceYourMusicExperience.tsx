@@ -1,5 +1,7 @@
 import { EhanceYourMusicExperienceData } from "../../../constants/EhanceYour";
 import Speaker from '../../../assets/Speaker.svg'
+import AllProductDetails from "../../../pages/AllProductDetails";
+import { Link } from "react-router-dom";
 
 const EhanceYourMusicExperience = () => {
   return(
@@ -10,9 +12,12 @@ const EhanceYourMusicExperience = () => {
      
         <div>
        <div className=" text-start ">
+        
+         
          <button className=" font-semibold md:text-[1rem] text-12 text-[#00FF66]">
           Categories
-        </button>
+        </button> 
+        
          <h1 className=" md:w-[443px] w-[300px] h-[120px] text-start text-[#FAFAFA] md:text-[48px] text-4xl font-semibold my-5 md:leading-14 leading-12">
           Enhance Your Music Experience
         </h1>
@@ -35,9 +40,11 @@ const EhanceYourMusicExperience = () => {
         </div>
         
         <div className="mt-8 text-start">
-          <button className="px-12 py-3 bg-[#00FF66] font-semibold text-black rounded-[4px]">
-          Buy Now!
+         <Link to={"/EveryProduct"}>
+          <button className="px-12 py-3 bg-[#00FF66] font-semibold text-black rounded-sm">
+            Buy Now!
           </button>
+         </Link>
         </div>
         </div>
 
