@@ -16,18 +16,18 @@ export const HeroFrameData: HeroFrameProps[] = [
   },
   {
     id: 2,
-    image: Iphone2,
+    image: Iphone1,
   },
   {
     id: 3,
-    image: Iphone3,
+    image: Iphone1,
   },
   {
     id: 4,
-    image: Iphone4,
+    image: Iphone1,
   },
   {
     id: 5,
-    image: Iphone5,
+    image: Iphone1,
   },
 ];

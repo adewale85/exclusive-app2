@@ -23,7 +23,7 @@ function Banner() {
 
             {HeroFrameData.map((_, index)=>(
                 <div key={index} 
-                  className={`size-4 rounded-full  cursor-pointer ${ currentIndex===index ? "bg-red-500" : "bg-gray-400"}`} onClick={() => setCurrentIndex(index)}>
+                  className={`lg:size-4 size-3 rounded-full  cursor-pointer ${ currentIndex===index ? "bg-red-500" : "bg-gray-400"}`} onClick={() => setCurrentIndex(index)}>
                 </div>
             ))}
         </div>
@@ -32,12 +32,3 @@ function Banner() {
 }
 
 export default Banner
-
-
-//     <div className=''>
-//   {HeroFrameData.map(({ id, image }) => (
-//     <div key={id} className='items-center justify-center'>
-//       <img src={image} alt="Hero frame" className='w-[496px] h-[352px]' />
-//     </div>
-//   ))}
-// </div>

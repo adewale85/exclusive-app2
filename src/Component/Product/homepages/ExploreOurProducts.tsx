@@ -65,19 +65,20 @@ const ExploreOurProducts = () => {
 
   return (
     <section className="Wrapper lg:px-0 px-4">
+      
       <div className="flex gap-3 items-center">
-        <div className="w-5 h-10 bg-red-500 rounded-md"></div>
+        <div className="lg:w-5 w-3 lg:h-10 h-8 bg-red-500 rounded-md"></div>
         <div className="font-poppins font-semibold text-[16px] leading-5 text-[#db4444]">
           Our products
         </div>
       </div>
-
+      
       <h2 className="font-inter font-semibold md:text-[36px] text-2xl leading-12 tracking-[4%] md:my-6 my-3 mb-24">
         Explore Our Products
       </h2>
 
       {/* First row */}
-      <div className="flex lg:flex-row flex-col items-center lg:gap-8 gap-35 lg:pb-40 pb-0">
+      <div className="flex lg:flex-row flex-col items-center lg:gap-8 gap-35 pb-40">
         {data?.products.slice(10, 14).map((product: Product) => (
           <div key={product.id} className="Wrapper relative lg:w-[270px] w-full h-[250px] bg-[#f5f5f5] mb-3">
             <section className="relative lg:w-[270px] w-full h-[250px] bg-[#f5f5f5] mb-3">
@@ -134,7 +135,7 @@ const ExploreOurProducts = () => {
       </div>
 
       {/* Second row */}
-      <div className="flex lg:flex-row flex-col items-center lg:gap-8 gap-35">
+      <div className="flex lg:flex-row flex-col items-center lg:gap-8 gap-35 lg:pb-40 pb-40">
         {data?.products.slice(15, 19).map((product: Product) => (
           <div key={product.id} className="Wrapper relative lg:w-[270px] w-full h-[250px] bg-[#f5f5f5] mb-3">
             <section className="relative lg:w-[270px] w-full h-[250px] bg-[#f5f5f5] mb-3">

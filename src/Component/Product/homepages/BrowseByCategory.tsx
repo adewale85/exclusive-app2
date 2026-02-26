@@ -6,7 +6,7 @@ const BrowseByCategory = () => {
   return (
     <div className="mt-12 Wrapper px-5  ">
       <div className='flex gap-3 items-center md:mb-5 mb-2'>
-        <div className='w-5 h-10 bg-red-500 rounded-md'></div>
+        <div className='lg:w-5 w-3 lg:h-10 h-8 bg-red-500 rounded-md'></div>
         <div className='font-poppins font-semibold text-[16px] leading-5 text-[#db4444]'> Categories</div>  
         </div> 
       <h2 className="font-inter font-semibold md:text-4xl text-2xl mb-12 text-left">Browse By Category</h2>
@@ -15,7 +15,7 @@ const BrowseByCategory = () => {
         {browseByCategoryData?.map(({ id, title, image, active }) => (
   <div
   key={id}
-  className={`border border-x-slate-400 rounded-sm w-[170px] h-[145px] flex gap-5 items-center justify-center
+  className={`border border-x-slate-400 shadow-sm rounded-sm lg:w-[170px] w-full h-[145px] flex gap-5 items-center justify-center
     transition-all duration-300
       hover:bg-red-500 hover:border-red-500
     ${active ? "bg-red-500 text-white" : "bg-white"}`}

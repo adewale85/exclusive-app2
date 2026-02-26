@@ -18,14 +18,14 @@ const FlashShare = () => {
 );
 
   return (
-    <div className="Wrapper space-y-6 lg:space-y-10">
+    <div className="Wrapper space-y-6 lg:space-y-10 ">
       {/* Header */}
-      <div className="flex flex-col lg:flex-row items-center justify-between lg:space-y-0 space-y-8">
+      <div className="flex flex-col lg:flex-row items-center justify-between lg:space-y-0 space-y-8 pt-60 lg:pt-20">
         
         {/* Title */}
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-[1.25rem] h-[2.5rem] bg-red-500 rounded-lg"></div>
+            <div className="lg:w-5 w-3 lg:h-10 h-8 bg-red-500 rounded-lg"></div>
             <span className="font-semibold text-[1rem]">
               Today’s
             </span>
@@ -99,17 +99,19 @@ const FlashShare = () => {
           </div>
 
           {/* Arrows */}
-          <div className="flex lg:gap-3 gap-12">
+          <div className="flex lg:flex hidden lg:gap-3 gap-12">
             <img
               src={LeftArrow}
               alt="Previous"
               className="lg:w-[46px] w-7 h-[46px] cursor-pointer"
             />
+
             <img
               src={RightArrow}
               alt="Next"
               className="lg:w-[46px] w-7 h-[46px] cursor-pointer"
             />
+      
           </div>
         
       </div>
@@ -117,9 +119,9 @@ const FlashShare = () => {
       <Myproducts />
 
       {/* View All */}
-      <div className="flex items-center justify-center py-10 lg::py-20">
+      <div className="flex items-center justify-center py-15 lg:py-20">
         <Link to="/EveryProduct">
-          <button className="w-[234px] h-14 bg-primary rounded-sm text-white text-[16px] font-medium">
+          <button className="w-[234px]  h-14 bg-primary rounded-sm text-white text-[16px] font-medium">
             View All Products
           </button>
         </Link>

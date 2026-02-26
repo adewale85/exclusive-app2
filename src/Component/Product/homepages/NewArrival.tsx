@@ -25,7 +25,7 @@ function NewArrival() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-auto">
         
         {/* Left Big Card (PlayStation) */}
-        <div className="relative bg-black rounded-xl overflow-hidden min-h-[400px] lg:h-[700px] w-[570px] flex items-end justify-center">
+        <div className="relative bg-black rounded-xl overflow-hidden min-h-[400px] lg:h-[700px] lg:w-[570px] w-full flex items-end justify-center">
           <img 
             src={Playstation} 
             alt="PS5" 

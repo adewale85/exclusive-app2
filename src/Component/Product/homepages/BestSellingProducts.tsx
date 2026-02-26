@@ -69,16 +69,18 @@ const BestSellingProducts = () => {
 
   return (
     <main className="my-12 px-4 Wrapper">
-      <div className='flex gap-3 items-center mb-5'>
-        <div className='w-5 h-10 bg-red-500 rounded-lg'></div>
+     <div className="lg:pb-0 pb-10">
+       <div className='flex gap-3 items-center lg:mb-5 mb-2'>
+        <div className='lg:w-5 w-3 lg:h-10 h-8 bg-red-500 rounded-lg'></div>
         <div className='font-poppins font-semibold text-[16px] leading-5 text-[#db4444]'>This Month</div>
       </div>
 
       <h2 className="font-inter font-semibold lg:text-4xl text-2xl leading-12 tracking-[4%] lg:mb-12 mb-2">
         Best Selling Products
       </h2>
+     </div>
 
-      <div className="flex lg:flex-row flex-col items-center lg:gap-8 gap-8">
+      <div className="flex lg:flex-row flex-col items-center lg:gap-8 gap-35 lg:pb-40 pb-20">
         {data?.products.slice(5, 9).map((BestSellingProductData: Product) => (
           <div key={BestSellingProductData.id} className="Wrapper relative lg:w-[270px] w-full h-[250px] bg-[#f5f5f5] mb-3">
             <section className="relative lg:w-[270px] w-full h-[250px] bg-[#f5f5f5] mb-3">

@@ -60,7 +60,7 @@ function EveryProduct() {
   if (error) return <p className="text-center text-red-500 py-10">{error}</p>;
 
   return (
-    <div className="Wrapper lg:px-0 px-4 grid lg:grid-cols-4 grid-cols-1 items-center lg:gap-8 gap-8 py-12">
+    <div className="Wrapper lg:px-0 px-4 grid lg:grid-cols-4 grid-cols-1 items-center lg:gap-8 gap-35 lg:py-12 py-8 lg:pb-0 pb-40">
       {data?.products.map((product: Product) => (
         <div
           key={product.id}
