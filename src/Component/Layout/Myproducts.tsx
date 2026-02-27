@@ -81,9 +81,9 @@ function Myproducts() {
         {data?.products.slice(0, 4).map((flashShareData: Product) => (
           <div
             key={flashShareData.id}
-            className="Wrapper relative w-[270px]  h-[250px] bg-[#f5f5f5] mb-3"
+            className="Wrapper relative lg:w-[270px] w-full h-[250px] bg-[#f5f5f5] mb-3"
           >
-            <section className="Wrapper relative w-[270px] h-[250px] bg-[#f5f5f5] mb-3">
+            <section className="Wrapper relative lg:w-[270px] w-full h-[250px] bg-[#f5f5f5] mb-3">
               <div className="flex justify-between p-2 relative ">
                 <div className="w-[3.438rem] h-6.5  bg-[#DB4445] rounded-lg text-white flex items-center justify-center text-[1rem] font-normal leading-4">
                   -40%

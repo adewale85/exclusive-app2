@@ -20,7 +20,7 @@ const FlashShare = () => {
   return (
     <div className="Wrapper space-y-6 lg:space-y-10 ">
       {/* Header */}
-      <div className="flex flex-col lg:flex-row items-center justify-between lg:space-y-0 space-y-8 pt-60 lg:pt-20">
+      <div className="flex flex-col lg:flex-row items-center justify-between lg:space-y-0 space-y-5  pt-60 lg:pt-20">
         
         {/* Title */}
         <div className="flex items-center gap-6">

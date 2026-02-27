@@ -80,7 +80,7 @@ const BestSellingProducts = () => {
       </h2>
      </div>
 
-      <div className="flex lg:flex-row flex-col items-center lg:gap-8 gap-35 lg:pb-40 pb-20">
+      <div className="flex lg:flex-row flex-col items-center lg:gap-8 gap-35 lg:pb-20 pb-20">
         {data?.products.slice(5, 9).map((BestSellingProductData: Product) => (
           <div key={BestSellingProductData.id} className="Wrapper relative lg:w-[270px] w-full h-[250px] bg-[#f5f5f5] mb-3">
             <section className="relative lg:w-[270px] w-full h-[250px] bg-[#f5f5f5] mb-3">

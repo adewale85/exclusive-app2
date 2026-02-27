@@ -70,7 +70,7 @@ function AllProductDetails() {
   if (!product) return null;
 
   return (
-    <div className="Wrapper lg:px-0 px-4">
+    <div className="Wrapper lg:px-0 px-4 lg:py-12 lg:pb-0 pb-22">
       {/* Breadcrumb */}
       <div className="flex lg:gap-12 gap-5 py-22">
         {["Account /", "Gaming /", product.title].map((item, index) => (
@@ -191,19 +191,20 @@ function AllProductDetails() {
             </div>
 
             {/* Delivery & Return */}
-            <div className="lg:w-[401px] w-full h-[180px] rounded-sm border flex flex-col items-center justify-center space-y-5">
-              <div className="flex gap-5 border-b p-6">
-                <img src={Delivery_Icon} alt="delivery" />
-                <div className="w-[332px]">
+            <div className="lg:w-[401px] w-full lg:h-[180px] h-full rounded-sm border flex flex-col items-center justify-center space-y-5">
+              <div className="flex gap-5 p-4">
+                <img src={Delivery_Icon} alt="delivery" className="w-8"/>
+                <div className="lg:w-[332px] w-[252px]">
                   <h2 className="font-poppins font-medium text-sm leading-6">Free Delivery</h2>
                   <p className="font-medium font-poppins text-[12px] leading-4">
                     Enter your postal code for Delivery Availability
                   </p>
                 </div>
               </div>
-              <div className="flex gap-5 p-4">
-                <img src={Return_Delivery} alt="return delivery" />
-                <div className="w-[332px]">
+              <div className="border w-full"></div>
+              <div className="flex gap-5 p-6">
+                <img src={Return_Delivery} alt="return delivery"className="w-8" />
+                <div className="lg:w-[332px] w-[252px]">
                   <h2 className="font-poppins font-medium text-sm leading-6">Return Delivery</h2>
                   <p className="font-medium font-poppins text-[12px] leading-4">
                     Free 30 Days Delivery Returns. Details
@@ -216,13 +217,15 @@ function AllProductDetails() {
       </div>
 
       {/* Related Products */}
-      <div className="py-22">
-        <div className="flex gap-3 items-center py-12">
-          <div className="w-5 h-10 bg-red-500 rounded-md"></div>
+      <div className="lg:py-22 py-0">
+        <div className="flex gap-3 items-center lg:py-12 lg:pt-0 pt-12">
+          <div className="lg:w-5 w-3 lg:h-10 h-6 bg-red-500 rounded-md"></div>
           <p className="font-poppins font-semibold text-base leading-5">Related Item</p>
+        
         </div>
-        <Myproducts />
+       
       </div>
+      <Myproducts />
     </div>
   );
 }
