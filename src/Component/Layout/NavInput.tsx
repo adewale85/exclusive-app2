@@ -1,90 +1,106 @@
-import { useEffect, useState } from 'react'
-import { IoSearch } from 'react-icons/io5'
+import { useEffect, useState } from "react";
+import { IoSearch } from "react-icons/io5";
 
 interface Product {
-  id: number
-  title: string
+  id: number;
+  title: string;
 }
 
 function NavInput() {
+  const [query, setQuery] = useState<string>("");
+  const [result, setResult] = useState<Product[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
-  const [query, setQuery] = useState<string>("")
-  const [result, setResult] = useState<Product[]>([])
-  const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string>("")
-
-  useEffect(()=>{
-
-    if(!query || query.length < 2){
-      setResult([])
-      return
+  useEffect(() => {
+    if (!query || query.length < 2) {
+      setResult([]);
+      return;
     }
 
-    const SearchProduct = async () => {
-      setLoading(true)
-      setError("")
+    const searchProduct = async () => {
+      setLoading(true);
+      setError("");
+
       try {
-        const response = await fetch(`https://dummyjson.com/products/search?q=${query}`)
-        if(!response.ok){
-          throw new Error("product is not available")
-        } 
-        const data = await response.json()
-        setResult(data.products || [])
+        const response = await fetch(
+          `https://dummyjson.com/products/search?q=${query}`
+        );
+
+        if (!response.ok) {
+          throw new Error("Product not available");
+        }
+
+        const data = await response.json();
+        setResult(data.products || []);
       } catch (err: unknown) {
         if (err instanceof Error) {
-          setError(err.message)
+          setError(err.message);
         } else {
-          setError("Something went wrong")
+          setError("Something went wrong");
         }
-        console.log(err);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    const timeoutId = setTimeout(()=>{
-      SearchProduct()
-    }, 500)
+    const timeoutId = setTimeout(() => {
+      searchProduct();
+    }, 500);
 
-    return () => clearTimeout(timeoutId)
-  }, [query])
+    return () => clearTimeout(timeoutId);
+  }, [query]);
 
-  return (   
-    <div className="flex gap-5 items-center justify-center relative">
-      <div className="relative lg:w-[387px] w-full lg:px-0 px-8 py-4">
+  return (
+    <div className="relative flex justify-center w-full">
+
+      {/* Input Container */}
+      <div className="relative w-full max-w-[400px] h-12">
+
+        {/* Input */}
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="What are you looking for?"
-          className="font-poppins text-[0.75rem] font-normal leading-4 w-full h-16 bg-[#F5F5f5] rounded-sm border-none text-black px-3"
+          autoComplete="off"
+          spellCheck="false"
+          className="w-full h-full pl-4 pr-10 border rounded-md outline-none text-base focus:ring-2 focus:ring-gray-300"
         />
-        <IoSearch className="absolute right-12 top-9 text-[1.2rem] cursor-pointer " />
+
+        {/* Icon */}
+        <IoSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 text-lg pointer-events-none" />
       </div>
 
+      {/* Results */}
       {result.length > 0 && (
-        <ul className='w-full max-h-60 overflow-y-auto absolute top-full left-0 shadow-lg border border-gray-200 bg-[#F5F5f5] z-100 rounded-b-sm '>
-          {result.map((product: Product)=>(
-            <li key={product.id} className='p-2 text-sm hover:bg-gray-200 cursor-pointer'>
+        <ul className="absolute top-full mt-1 w-full max-w-[400px] max-h-60 overflow-y-auto bg-white border border-gray-200 shadow-lg rounded-md z-50">
+          {result.map((product: Product) => (
+            <li
+              key={product.id}
+              className="p-3 text-sm hover:bg-gray-100 cursor-pointer"
+            >
               {product.title}
             </li>
           ))}
         </ul>
       )}
 
+      {/* Loading */}
       {loading && (
-        <div className='absolute top-2 right-10 text-xs'>
+        <div className="absolute top-14 text-xs text-gray-500">
           Searching...
         </div>
       )}
 
+      {/* Error */}
       {error && (
-        <div className='absolute top-full mt-2 text-red-500 text-xs'>
+        <div className="absolute top-full mt-2 text-red-500 text-xs">
           {error}
         </div>
       )}
     </div>
-  )
+  );
 }
 
-export default NavInput
+export default NavInput;

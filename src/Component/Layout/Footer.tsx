@@ -1,88 +1,83 @@
+import { useEffect, useState } from "react";
+import { IoSearch } from "react-icons/io5";
 
-import Sendicon from "../../assets/icon-send.svg";
-import Qrcode from "../../assets/Qr Code.svg";
-import Appstore from "../../assets/AppStore.svg";
-import { footerSections } from "../../constants/footerData";
-import Twitter_Icon from "../../assets/Icon-Twitter.svg"
-import Facebook_Icon  from "../../assets/Icon-Facebook.svg"
-import Linkedin_Icon from "../../assets/Icon-Linkedin.svg"
-import Instagram_Icon from "../../assets/icon-instagram.svg"
-import { Link } from "react-router-dom";
+interface Product {
+  id: number;
+  title: string;
+}
 
+function NavInput() {
+  const [query, setQuery] = useState("");
+  const [result, setResult] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    if (!query || query.length < 2) {
+      setResult([]);
+      return;
+    }
 
-function Footer() {
+    const searchProduct = async () => {
+      setLoading(true);
+
+      try {
+        const res = await fetch(
+          `https://dummyjson.com/products/search?q=${query}`
+        );
+        const data = await res.json();
+        setResult(data.products || []);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    const timeout = setTimeout(searchProduct, 500);
+
+    return () => clearTimeout(timeout);
+  }, [query]);
+
   return (
-    <div className="bg-black text-white py-12">
-      <div className="Wrapper flex lg:flex-row flex-col justify-between items-start lg:p-0 pl-4">
+    <div className="relative flex justify-center">
 
-        {/* === UNIQUE SECTION === */}
-        <div className="space-y-5">
-        
-         <ul>
-          <li className=" font-inter font-bold text-2xl list-none">
-            <Link to={"/"}>Exclusive</Link>
-          </li>
-         </ul>
-          
-          <h3 className="font-poppins text-[20px] font-medium">Subscribe</h3>
-          <p className="font-poppins text-[16px]">Get 10% off your first order</p>
+      {/* Input Container (same structure as your footer) */}
+      <div className="md:w-[220px] w-[333px] h-12 relative flex items-center border rounded-sm">
 
-          <div className="md:w-[220px] w-[333px] h-12 relative flex items-center border rounded-sm">
-            <input
-              type="text"
-              placeholder="Enter your email"
-              className="py-3 pl-4 font-poppins text-base"
-            />
-            <span className="absolute right-2">
-              <img src={Sendicon} alt="" />
-            </span>
-          </div>
-        </div>
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="What are you looking for?"
+          className="w-full h-full py-3 pl-4 pr-10 font-poppins text-base outline-none"
+        />
 
-        {/* === MAPPED SECTIONS === */}
-        {footerSections.map(({ title, items }, index) => (
-          <div key={index} className="space-y-5 md:py-0 py-8 ">
-            <h2 className="font-poppins font-medium text-[20px]">{title}</h2>
-
-            {items.map((item , i ) => (
-              <Link to={item}>
-                <p key={i} className=" font-normal text-[16px] leading-6 w-[175px] ">
-                {item}
-               
-              </p>
-              </Link>
-            ))}
-          </div>
-        ))}
-        
-
-        {/* === UNIQUE DOWNLOAD SECTION === */}
-        <div className="space-y-5">
-          <h2 className="font-poppins text-[20px] font-medium">Download App</h2>
-          <p className="font-poppins text-[12px] font-medium">
-            Save $3 with App New User Only
-          </p>
-
-          <div className="flex gap-5">
-            <img src={Qrcode} className="size-20" />
-            <div className="space-y-2">
-              <img src={Appstore} className="w-[110px] h-10" />
-              <img src={Appstore} className="w-[110px] h-10" />
-            </div>
-          </div>
-          <div className="flex gap-6">
-            <img src={Facebook_Icon} alt="" />
-            <img src={Twitter_Icon} alt="" />
-            <img src={Instagram_Icon} alt="" />
-            <img src={Linkedin_Icon} alt="" />
-
-            </div>
-        </div>
-
+        <span className="absolute right-3 pointer-events-none">
+          <IoSearch className="text-lg text-gray-500" />
+        </span>
       </div>
+
+      {/* Results */}
+      {result.length > 0 && (
+        <ul className="absolute top-full mt-1 w-[333px] md:w-[220px] max-h-60 overflow-y-auto bg-white border shadow-lg z-50">
+          {result.map((product) => (
+            <li
+              key={product.id}
+              className="p-2 text-sm hover:bg-gray-100 cursor-pointer"
+            >
+              {product.title}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {loading && (
+        <p className="absolute top-14 text-xs text-gray-500">
+          Searching...
+        </p>
+      )}
     </div>
   );
 }
 
-export default Footer;
+export default NavInput;
