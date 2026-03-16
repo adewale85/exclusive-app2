@@ -130,7 +130,7 @@ function Navbar() {
       </div>
 
       {/* Bottom Border */}
-      <div className="border-b-2 opacity-30"></div>
+      <div className="border-b-2 opacity-30 pt-5"></div>
 
     </nav>
   );

@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import IphoneIcon from "../../assets/Apple_logo.svg";
 import Right_Arrow from "../../assets/Right_Arrow.svg";
 
 import Banner from "./Banner";
 import SidebarCategoryDetails from "./SidebarCategory";
+import AllProductDetails from "../../pages/AllProductDetails";
 function Sidebar() {
   
   return (
@@ -33,12 +35,14 @@ function Sidebar() {
               </div>
 
               <div>
+                <Link to="/EveryProduct">
                 <p className="font-poppins font-medium text-base leading-6 text-[#FAFAFA] flex items-center gap-5">
                   Shop Now
                   <span>
                     <img src={Right_Arrow} alt="" />
                   </span>
                 </p>
+                </Link>
               </div>
             </div>
 
